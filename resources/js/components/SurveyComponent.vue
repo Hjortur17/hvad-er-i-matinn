@@ -12,7 +12,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="Evrópa" value="Evrópa" class="opacity-0 fixed w-0" v-model="countryPicked">
 							<label for="Evrópa" class="inline-block selection unselected flex-1 h-48">
-								<i class="fad fa-globe-europe fa-4x"></i>
+								<i class="fad fa-globe-europe fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Evrópa</h4>
 							</label>
 						</div>
@@ -22,7 +22,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="Asía" value="Asía" class="opacity-0 fixed w-0" v-model="countryPicked">
 							<label for="Asía" class="inline-block selection unselected flex-1 h-48">
-								<i class="fad fa-globe-asia fa-4x"></i>
+								<i class="fad fa-globe-asia fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Asía</h4>
 							</label>
 						</div>
@@ -32,7 +32,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="Suður-Ameríka" value="Suður-Ameríka" class="opacity-0 fixed w-0" v-model="countryPicked">
 							<label for="Suður-Ameríka" class="inline-block selection unselected flex-1 h-48">
-								<i class="fad fa-globe-americas fa-4x"></i>
+								<i class="fad fa-globe-americas fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Suður-Ameríka</h4>
 							</label>
 						</div>
@@ -42,7 +42,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="Afríka" value="Afríka" class="opacity-0 fixed w-0" v-model="countryPicked">
 							<label for="Afríka" class="inline-block selection unselected flex-1 h-48">
-								<i class="fad fa-globe-africa fa-4x"></i>
+								<i class="fad fa-globe-africa fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Afríka</h4>
 							</label>
 						</div>
@@ -73,7 +73,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="Fisk" value="Fisk" class="opacity-0 fixed w-0" v-model="foodPicked">
 							<label for="Fisk" class="inline-block selection unselected flex-1 h-48">
-								<i class="fas fa-fish fa-4x"></i>
+								<i class="fas fa-fish fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Fisk</h4>
 							</label>
 						</div>
@@ -83,7 +83,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="Kjöt" value="Kjöt" class="opacity-0 fixed w-0" v-model="foodPicked">
 							<label for="Kjöt" class="inline-block selection unselected flex-1 h-48">
-								<i class="fas fa-steak fa-4x"></i>
+								<i class="fas fa-steak fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Kjöt</h4>
 							</label>
 						</div>
@@ -93,7 +93,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="Kjúkling" value="Kjúkling" class="opacity-0 fixed w-0" v-model="foodPicked">
 							<label for="Kjúkling" class="inline-block selection unselected flex-1 h-48">
-								<i class="fas fa-drumstick fa-4x"></i>
+								<i class="fas fa-drumstick fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Kjúkling</h4>
 							</label>
 						</div>
@@ -103,7 +103,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="Súpu" value="Súpu" class="opacity-0 fixed w-0" v-model="foodPicked">
 							<label for="Súpu" class="inline-block selection unselected flex-1 h-48">
-								<i class="fas fa-soup fa-4x"></i>
+								<i class="fas fa-soup fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Súpu</h4>
 							</label>
 						</div>
@@ -113,7 +113,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="Annað" value="Annað" class="opacity-0 fixed w-0" v-model="foodPicked">
 							<label for="Annað" class="inline-block selection unselected flex-1 h-48">
-								<i class="fas fa-salad fa-4x"></i>
+								<i class="fas fa-salad fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Annað</h4>
 							</label>
 						</div>
@@ -152,7 +152,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="Sterkt" value="Sterkt" class="opacity-0 fixed w-0" v-model="spicyPicked">
 							<label for="Sterkt" class="inline-block selection unselected flex-1 h-48">
-								<i class="fas fa-pepper-hot fa-4x"></i>
+								<i class="fas fa-pepper-hot fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Sterkt</h4>
 							</label>
 						</div>
@@ -162,7 +162,7 @@
 						<div class="flex h-48 items-center">
 							<input type="radio" id="EkkiSterkt" value="Ekki Sterkt" class="opacity-0 fixed w-0" v-model="spicyPicked">
 							<label for="EkkiSterkt" class="inline-block selection unselected flex-1 h-48">
-								<i class="fas fa-leaf fa-4x"></i>
+								<i class="fas fa-leaf fa-4x pt-8"></i>
 								<h4 class="font-bold uppercase pt-4">Ekki Sterkt</h4>
 							</label>
 						</div>

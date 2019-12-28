@@ -38608,7 +38608,7 @@ var staticRenderFns = [
         attrs: { for: "Evrópa" }
       },
       [
-        _c("i", { staticClass: "fad fa-globe-europe fa-4x" }),
+        _c("i", { staticClass: "fad fa-globe-europe fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
           _vm._v("Evrópa")
@@ -38627,7 +38627,7 @@ var staticRenderFns = [
         attrs: { for: "Asía" }
       },
       [
-        _c("i", { staticClass: "fad fa-globe-asia fa-4x" }),
+        _c("i", { staticClass: "fad fa-globe-asia fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Asía")])
       ]
@@ -38644,7 +38644,7 @@ var staticRenderFns = [
         attrs: { for: "Suður-Ameríka" }
       },
       [
-        _c("i", { staticClass: "fad fa-globe-americas fa-4x" }),
+        _c("i", { staticClass: "fad fa-globe-americas fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
           _vm._v("Suður-Ameríka")
@@ -38663,7 +38663,7 @@ var staticRenderFns = [
         attrs: { for: "Afríka" }
       },
       [
-        _c("i", { staticClass: "fad fa-globe-africa fa-4x" }),
+        _c("i", { staticClass: "fad fa-globe-africa fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
           _vm._v("Afríka")
@@ -38692,7 +38692,7 @@ var staticRenderFns = [
         attrs: { for: "Fisk" }
       },
       [
-        _c("i", { staticClass: "fas fa-fish fa-4x" }),
+        _c("i", { staticClass: "fas fa-fish fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Fisk")])
       ]
@@ -38709,7 +38709,7 @@ var staticRenderFns = [
         attrs: { for: "Kjöt" }
       },
       [
-        _c("i", { staticClass: "fas fa-steak fa-4x" }),
+        _c("i", { staticClass: "fas fa-steak fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Kjöt")])
       ]
@@ -38726,7 +38726,7 @@ var staticRenderFns = [
         attrs: { for: "Kjúkling" }
       },
       [
-        _c("i", { staticClass: "fas fa-drumstick fa-4x" }),
+        _c("i", { staticClass: "fas fa-drumstick fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
           _vm._v("Kjúkling")
@@ -38745,7 +38745,7 @@ var staticRenderFns = [
         attrs: { for: "Súpu" }
       },
       [
-        _c("i", { staticClass: "fas fa-soup fa-4x" }),
+        _c("i", { staticClass: "fas fa-soup fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Súpu")])
       ]
@@ -38762,7 +38762,7 @@ var staticRenderFns = [
         attrs: { for: "Annað" }
       },
       [
-        _c("i", { staticClass: "fas fa-salad fa-4x" }),
+        _c("i", { staticClass: "fas fa-salad fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Annað")])
       ]
@@ -38799,7 +38799,7 @@ var staticRenderFns = [
         attrs: { for: "Sterkt" }
       },
       [
-        _c("i", { staticClass: "fas fa-pepper-hot fa-4x" }),
+        _c("i", { staticClass: "fas fa-pepper-hot fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
           _vm._v("Sterkt")
@@ -38818,7 +38818,7 @@ var staticRenderFns = [
         attrs: { for: "EkkiSterkt" }
       },
       [
-        _c("i", { staticClass: "fas fa-leaf fa-4x" }),
+        _c("i", { staticClass: "fas fa-leaf fa-4x pt-8" }),
         _vm._v(" "),
         _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
           _vm._v("Ekki Sterkt")
