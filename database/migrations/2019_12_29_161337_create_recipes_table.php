@@ -15,6 +15,25 @@ class CreateRecipesTable extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->boolean('hadeigismatur');
+            $table->boolean('kvoldmatur');
+
+            $table->boolean('vegan');
+            $table->boolean('veganfisk');
+            $table->boolean('ekkivegan');
+
+            $table->boolean('evropa');
+            $table->boolean('asia');
+            $table->boolean('amerika');
+
+            $table->boolean('fisk');
+            $table->boolean('kjot');
+            $table->boolean('kjukling');
+            $table->boolean('supa');
+            $table->boolean('annad');
+
+            $table->boolean('spicy');
             $table->timestamps();
         });
     }

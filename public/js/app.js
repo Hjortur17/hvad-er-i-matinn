@@ -2223,6 +2223,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2234,6 +2250,18 @@ __webpack_require__.r(__webpack_exports__);
       foodPicked: '',
       spicyPicked: ''
     };
+  },
+  methods: {
+    submitForm: function submitForm() {
+      axios.post('/uppskriftir/sækja', {
+        firstName: 'Fred',
+        lastName: 'Flintstone'
+      }).then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   },
   computed: {
     showSpiceSlide: function showSpiceSlide() {
@@ -38283,8 +38311,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container max-w-4xl mx-auto" }, [
     _c(
-      "div",
-      { staticClass: "flex items-center h-auto md:h-screen py-20 md:py-0" },
+      "form",
+      {
+        staticClass: "flex items-center h-auto md:h-screen py-20 md:py-0",
+        on: { submit: _vm.submitForm }
+      },
       [
         _vm.stepCount === 1
           ? _c("div", { staticClass: "w-full h-auto" }, [
@@ -38436,15 +38467,15 @@ var render = function() {
                             staticClass: "opacity-0 fixed w-0",
                             attrs: {
                               type: "radio",
-                              id: "vegan",
-                              value: "vegan"
+                              id: "Vegan",
+                              value: "Vegan"
                             },
                             domProps: {
-                              checked: _vm._q(_vm.veganPicked, "vegan")
+                              checked: _vm._q(_vm.veganPicked, "Vegan")
                             },
                             on: {
                               change: function($event) {
-                                _vm.veganPicked = "vegan"
+                                _vm.veganPicked = "Vegan"
                               }
                             }
                           }),
@@ -38736,90 +38767,131 @@ var render = function() {
                     "div",
                     { staticClass: "flex flex-col md:flex-row -mx-2" },
                     [
-                      _c("div", { staticClass: "flex-1 h-auto mb-8 md:mb-0" }, [
-                        _c("div", { staticClass: "flex h-48 items-center" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.foodPicked,
-                                expression: "foodPicked"
-                              }
-                            ],
-                            staticClass: "opacity-0 fixed w-0",
-                            attrs: { type: "radio", id: "Fisk", value: "Fisk" },
-                            domProps: {
-                              checked: _vm._q(_vm.foodPicked, "Fisk")
-                            },
-                            on: {
-                              change: function($event) {
-                                _vm.foodPicked = "Fisk"
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(13)
-                        ])
-                      ]),
+                      _vm.veganPicked !== "Vegan"
+                        ? _c(
+                            "div",
+                            { staticClass: "flex-1 h-auto mb-8 md:mb-0" },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "flex h-48 items-center" },
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.foodPicked,
+                                        expression: "foodPicked"
+                                      }
+                                    ],
+                                    staticClass: "opacity-0 fixed w-0",
+                                    attrs: {
+                                      type: "radio",
+                                      id: "Fisk",
+                                      value: "Fisk"
+                                    },
+                                    domProps: {
+                                      checked: _vm._q(_vm.foodPicked, "Fisk")
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        _vm.foodPicked = "Fisk"
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm._m(13)
+                                ]
+                              )
+                            ]
+                          )
+                        : _vm._e(),
                       _vm._v(" "),
-                      _c("div", { staticClass: "flex-1 h-auto mb-8 md:mb-0" }, [
-                        _c("div", { staticClass: "flex h-48 items-center" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.foodPicked,
-                                expression: "foodPicked"
-                              }
-                            ],
-                            staticClass: "opacity-0 fixed w-0",
-                            attrs: { type: "radio", id: "Kjöt", value: "Kjöt" },
-                            domProps: {
-                              checked: _vm._q(_vm.foodPicked, "Kjöt")
-                            },
-                            on: {
-                              change: function($event) {
-                                _vm.foodPicked = "Kjöt"
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(14)
-                        ])
-                      ]),
+                      _vm.veganPicked === "Ekki vegan"
+                        ? _c(
+                            "div",
+                            { staticClass: "flex-1 h-auto mb-8 md:mb-0" },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "flex h-48 items-center" },
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.foodPicked,
+                                        expression: "foodPicked"
+                                      }
+                                    ],
+                                    staticClass: "opacity-0 fixed w-0",
+                                    attrs: {
+                                      type: "radio",
+                                      id: "Kjöt",
+                                      value: "Kjöt"
+                                    },
+                                    domProps: {
+                                      checked: _vm._q(_vm.foodPicked, "Kjöt")
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        _vm.foodPicked = "Kjöt"
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm._m(14)
+                                ]
+                              )
+                            ]
+                          )
+                        : _vm._e(),
                       _vm._v(" "),
-                      _c("div", { staticClass: "flex-1 h-auto mb-8 md:mb-0" }, [
-                        _c("div", { staticClass: "flex h-48 items-center" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.foodPicked,
-                                expression: "foodPicked"
-                              }
-                            ],
-                            staticClass: "opacity-0 fixed w-0",
-                            attrs: {
-                              type: "radio",
-                              id: "Kjúkling",
-                              value: "Kjúkling"
-                            },
-                            domProps: {
-                              checked: _vm._q(_vm.foodPicked, "Kjúkling")
-                            },
-                            on: {
-                              change: function($event) {
-                                _vm.foodPicked = "Kjúkling"
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(15)
-                        ])
-                      ]),
+                      _vm.veganPicked === "Ekki vegan"
+                        ? _c(
+                            "div",
+                            { staticClass: "flex-1 h-auto mb-8 md:mb-0" },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "flex h-48 items-center" },
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.foodPicked,
+                                        expression: "foodPicked"
+                                      }
+                                    ],
+                                    staticClass: "opacity-0 fixed w-0",
+                                    attrs: {
+                                      type: "radio",
+                                      id: "Kjúkling",
+                                      value: "Kjúkling"
+                                    },
+                                    domProps: {
+                                      checked: _vm._q(
+                                        _vm.foodPicked,
+                                        "Kjúkling"
+                                      )
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        _vm.foodPicked = "Kjúkling"
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm._m(15)
+                                ]
+                              )
+                            ]
+                          )
+                        : _vm._e(),
                       _vm._v(" "),
                       _c("div", { staticClass: "flex-1 h-auto mb-8 md:mb-0" }, [
                         _c("div", { staticClass: "flex h-48 items-center" }, [
@@ -38930,7 +39002,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("h2", { staticClass: "font-medium text-4xl" }, [
-                    _vm._v("Sterka eða ekki?")
+                    _vm._v("Viltu sterkan mat eða ekki?")
                   ])
                 ]),
                 _vm._v(" "),
@@ -39038,6 +39110,196 @@ var render = function() {
                 ])
               ])
             ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.stepCount === 6
+          ? _c("div", { staticClass: "w-full h-auto" }, [
+              _c("div", { staticClass: "flex flex-col" }, [
+                _c("div", { staticClass: "w-full mb-12 px-6 md:px-0" }, [
+                  _c("small", [
+                    _c("span", {
+                      domProps: { textContent: _vm._s(_vm.stepCount) }
+                    }),
+                    _vm._v(" / "),
+                    _c("span", {
+                      domProps: { textContent: _vm._s(_vm.numberOfSlides) }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("h2", { staticClass: "font-medium text-4xl" }, [
+                    _vm._v("Er þetta rétt?")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-full px-6 md:px-0" }, [
+                  _c(
+                    "table",
+                    { staticClass: "text-left w-full border-collapse" },
+                    [
+                      _vm._m(24),
+                      _vm._v(" "),
+                      _c("tbody", [
+                        _c("tr", { staticClass: "flex" }, [
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "w-6/12 py-4 border-b border-grey-light"
+                            },
+                            [_vm._v("Eftir hverju ertu að leita?")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "flex-1 py-4 border-b border-grey-light"
+                            },
+                            [
+                              _c("span", {
+                                domProps: {
+                                  textContent: _vm._s(_vm.mealsPicked)
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", { staticClass: "flex" }, [
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "w-6/12 py-4 border-b border-grey-light"
+                            },
+                            [_vm._v("Ertu vegan?")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "flex-1 py-4 border-b border-grey-light"
+                            },
+                            [
+                              _c("span", {
+                                domProps: {
+                                  textContent: _vm._s(_vm.veganPicked)
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", { staticClass: "flex" }, [
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "w-6/12 py-4 border-b border-grey-light"
+                            },
+                            [_vm._v("Frá hvaða landi viltu hafa matinn þinn?")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "flex-1 py-4 border-b border-grey-light"
+                            },
+                            [
+                              _c("span", {
+                                domProps: {
+                                  textContent: _vm._s(_vm.countryPicked)
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", { staticClass: "flex" }, [
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "w-6/12 py-4 border-b border-grey-light"
+                            },
+                            [_vm._v("Í hverju ertu í stuði fyrir?")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "flex-1 py-4 border-b border-grey-light"
+                            },
+                            [
+                              _c("span", {
+                                domProps: {
+                                  textContent: _vm._s(_vm.foodPicked)
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", { staticClass: "flex" }, [
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "w-6/12 py-4 border-b border-grey-light"
+                            },
+                            [_vm._v("Viltu sterkan mat eða ekki?")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "flex-1 py-4 border-b border-grey-light"
+                            },
+                            [
+                              _c("span", {
+                                domProps: {
+                                  textContent: _vm._s(_vm.spicyPicked)
+                                }
+                              })
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-full mt-12 px-6 md:px-0" }, [
+                  _c("div", { staticClass: "flex justify-between" }, [
+                    _c(
+                      "button",
+                      {
+                        attrs: { id: "prev-button" },
+                        on: {
+                          click: function($event) {
+                            _vm.stepCount--
+                          }
+                        }
+                      },
+                      [_vm._m(25)]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        attrs: { id: "next-button" },
+                        on: { click: _vm.submitForm }
+                      },
+                      [_vm._m(26)]
+                    )
+                  ])
+                ])
+              ])
+            ])
           : _vm._e()
       ]
     )
@@ -39100,7 +39362,7 @@ var staticRenderFns = [
       "label",
       {
         staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "vegan" }
+        attrs: { for: "Vegan" }
       },
       [
         _c("i", { staticClass: "fad fa-leaf-heart fa-4x pt-8" }),
@@ -39386,6 +39648,52 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-auto" }, [
+      _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-6 self-center" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t\t")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-auto" }, [
+      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t\t")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-6 self-center" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "flex" }, [
+        _c(
+          "th",
+          {
+            staticClass:
+              "w-6/12 py-4 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light"
+          },
+          [_vm._v("Spurning")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass:
+              "flex-1 py-4 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light"
+          },
+          [_vm._v("Þú valdir")]
+        )
+      ])
+    ])
   },
   function() {
     var _vm = this

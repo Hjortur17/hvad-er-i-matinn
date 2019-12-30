@@ -1,6 +1,6 @@
 <template>
 	<div class="container max-w-4xl mx-auto">
-		<div class="flex items-center h-auto md:h-screen py-20 md:py-0">
+		<form @submit="submitForm" class="flex items-center h-auto md:h-screen py-20 md:py-0">
 			<div class="w-full h-auto" v-if="stepCount === 1">
 				<div class="flex flex-col">
 					<div class="w-full mb-12 px-6 md:px-0">
@@ -68,8 +68,8 @@
 						<div class="flex flex-col md:flex-row -mx-2">
 							<div class="flex-1 h-auto mb-8 md:mb-0">
 								<div class="flex h-48 items-center">
-									<input type="radio" id="vegan" value="vegan" class="opacity-0 fixed w-0" v-model="veganPicked">
-									<label for="vegan" class="inline-block selection unselected flex-1 h-48">
+									<input type="radio" id="Vegan" value="Vegan" class="opacity-0 fixed w-0" v-model="veganPicked">
+									<label for="Vegan" class="inline-block selection unselected flex-1 h-48">
 										<i class="fad fa-leaf-heart fa-4x pt-8"></i>
 										<h4 class="font-bold uppercase pt-4">Vegan</h4>
 									</label>
@@ -204,7 +204,7 @@
 
 					<div class="w-full px-6 md:px-0">
 						<div class="flex flex-col md:flex-row -mx-2">
-							<div class="flex-1 h-auto mb-8 md:mb-0">
+							<div class="flex-1 h-auto mb-8 md:mb-0" v-if="veganPicked !== 'Vegan'">
 								<div class="flex h-48 items-center">
 									<input type="radio" id="Fisk" value="Fisk" class="opacity-0 fixed w-0" v-model="foodPicked">
 									<label for="Fisk" class="inline-block selection unselected flex-1 h-48">
@@ -214,7 +214,7 @@
 								</div>
 							</div>
 
-							<div class="flex-1 h-auto mb-8 md:mb-0">
+							<div class="flex-1 h-auto mb-8 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
 								<div class="flex h-48 items-center">
 									<input type="radio" id="Kjöt" value="Kjöt" class="opacity-0 fixed w-0" v-model="foodPicked">
 									<label for="Kjöt" class="inline-block selection unselected flex-1 h-48">
@@ -224,7 +224,7 @@
 								</div>
 							</div>
 
-							<div class="flex-1 h-auto mb-8 md:mb-0">
+							<div class="flex-1 h-auto mb-8 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
 								<div class="flex h-48 items-center">
 									<input type="radio" id="Kjúkling" value="Kjúkling" class="opacity-0 fixed w-0" v-model="foodPicked">
 									<label for="Kjúkling" class="inline-block selection unselected flex-1 h-48">
@@ -283,7 +283,7 @@
 				<div class="flex flex-col">
 					<div class="w-full mb-12 px-6 md:px-0">
 						<small><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
-						<h2 class="font-medium text-4xl">Sterka eða ekki?</h2>
+						<h2 class="font-medium text-4xl">Viltu sterkan mat eða ekki?</h2>
 					</div>
 
 					<div class="w-full px-6 md:px-0">
@@ -333,53 +333,69 @@
 				</div>
 			</div>
 
-			<!-- <div class="w-full h-auto" v-if="stepCount === 5">
-				<div class="flex -mx-2 pt-64 pb-12">
-					<div class="w-2/5">
-						<img src="/images/duck.jpg" class="w-full object-cover">
-						<button id="prev-button" class="btn mt-12" @click="stepCount--">
-							<div class="flex w-auto">
-								<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
-								<span>
-									Til baka
-								</span>
-							</div>
-						</button>
+			<div class="w-full h-auto" v-if="stepCount === 6">
+				<div class="flex flex-col">
+					<div class="w-full mb-12 px-6 md:px-0">
+						<small><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
+						<h2 class="font-medium text-4xl">Er þetta rétt?</h2>
 					</div>
-					<div class="flex-1 self-center px-6 overflow-hidden">
-						<h2 class="text-4xl font-bold leading-tight">Andar salat</h2>
 
-						<p class="text-base font-normal leading-relaxed py-6">
-							Dýrindist andarsalat sem er létt í eldun sem og maga. 
-						</p>
+					<div class="w-full px-6 md:px-0">
+						<table class="text-left w-full border-collapse"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
+							<thead>
+								<tr class="flex">
+									<th class="w-6/12 py-4 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Spurning</th>
+									<th class="flex-1 py-4 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Þú valdir</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="flex">
+									<td class="w-6/12 py-4 border-b border-grey-light">Eftir hverju ertu að leita?</td>
+									<td class="flex-1 py-4 border-b border-grey-light"><span v-text="mealsPicked"></span></td>
+								</tr>
+								<tr class="flex">
+									<td class="w-6/12 py-4 border-b border-grey-light">Ertu vegan?</td>
+									<td class="flex-1 py-4 border-b border-grey-light"><span v-text="veganPicked"></span></td>
+								</tr>
+								<tr class="flex">
+									<td class="w-6/12 py-4 border-b border-grey-light">Frá hvaða landi viltu hafa matinn þinn?</td>
+									<td class="flex-1 py-4 border-b border-grey-light"><span v-text="countryPicked"></span></td>
+								</tr>
+								<tr class="flex">
+									<td class="w-6/12 py-4 border-b border-grey-light">Í hverju ertu í stuði fyrir?</td>
+									<td class="flex-1 py-4 border-b border-grey-light"><span v-text="foodPicked"></span></td>
+								</tr>
+								<tr class="flex">
+									<td class="w-6/12 py-4 border-b border-grey-light">Viltu sterkan mat eða ekki?</td>
+									<td class="flex-1 py-4 border-b border-grey-light"><span v-text="spicyPicked"></span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-						<div class="py-6">
-							<h4 class="font-bold uppercase">Hráefni</h4>
-							<hr class="border mb-4">
-
-							<p class="mb-2">1 andarlæri</p>
-							<p class="mb-2">1 tsp Chinese five-spice powder</p>
-							<p class="mb-2">140g rice noodles</p>
-							<p class="mb-2">1 celery, stick, cut into matchsticks</p>
-							<p class="mb-2">1 carrot, cut into matchsticks</p>
-							<p class="mb-2">½ cucumber, deseeded and cut into matchsticks</p>
-							<p class="mb-2">2 spring onions, sliced lengthways</p>
-							<p class="mb-2">2 tbsp hoisin sauce</p>
-							<p class="mb-2">1 tbsp soy sauce</p>
-						</div>
-
-						<div>
-							<h4 class="font-bold uppercase">Aðferð</h4>
-							<hr class="border mb-4">
-
-							<p class="leading-relaxed mb-2">Heat oven to 220C/200C fan/gas 7. Rub the duck leg all over with five-spice and seasoning, place on a baking tray and roast for 25 mins.</p>
-							<p class="leading-relaxed mb-2">Meanwhile, cook the rice noodles following pack instructions. Drain and cool under cold running water, then drain again well and toss with the celery, carrot, cucumber and spring onions. When cool enough to handle, remove the duck meat and crispy skin from the bone and finely shred.</p>
-							<p class="leading-relaxed mb-2">To make the dressing, mix the hoisin and soy sauce with 2 tbsp water. Divide the noodles between two plates and top with the shredded duck. Drizzle over the dressing and serve.</p>
+					<div class="w-full mt-12 px-6 md:px-0">
+						<div class="flex justify-between">
+							<button id="prev-button" @click="stepCount--">
+								<div class="flex w-auto">
+									<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
+									<span>
+										Til baka
+									</span>
+								</div>
+							</button>
+							<button id="next-button" @click="submitForm">
+								<div class="flex w-auto">
+									<span>
+										Áfram
+									</span>
+									<i class="fad fa-long-arrow-alt-right pl-6 self-center"></i>
+								</div>
+							</button>
 						</div>
 					</div>
 				</div>
-			</div> -->
-		</div>
+			</div>
+		</form>
 	</div>
 </template>
 
@@ -394,6 +410,21 @@ export default {
 			countryPicked: '',
 			foodPicked: '',
 			spicyPicked: '',
+		}
+	},
+
+	methods: {
+		submitForm: function () {
+			axios.post('/uppskriftir/sækja', {
+				firstName: 'Fred',
+				lastName: 'Flintstone'
+			})
+			.then(function (response) {
+				console.log(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 		}
 	},
 
