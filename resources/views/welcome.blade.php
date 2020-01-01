@@ -9,12 +9,13 @@
 
 	<!-- Fonts -->
 	<link href="/css/app.css" rel="stylesheet">
-
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-ekOryaXPbeCpWQNxMwSWVvQ0+1VrStoPJq54shlYhR8HzQgig1v5fas6YgOqLoKz" crossorigin="anonymous">
 </head>
 <body>
 	<div id="app">
-		<survey></survey>
+		<div class="container max-w-4xl mx-auto">
+			<survey></survey>
+		</div>
 	</div>
 	
 	<script src="/js/app.js" type="text/javascript"></script>
