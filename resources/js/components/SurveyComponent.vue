@@ -1,6 +1,6 @@
 <template>
 	<div class="container max-w-4xl mx-auto">
-		<form @submit="submitForm" class="flex items-center h-auto md:h-screen py-20 md:py-0">
+		<div class="flex items-center h-auto md:h-screen py-20 md:py-0">
 			<div class="w-full h-auto" v-if="stepCount === 1">
 				<div class="flex flex-col">
 					<div class="w-full mb-12 px-6 md:px-0">
@@ -44,7 +44,7 @@
 
 					<div class="w-full mt-12 px-6 md:px-0">
 						<div class="flex justify-end">
-							<button id="next-button" @click="stepCount++" :disabled="!mealsPicked">
+							<button class="next-button" @click="stepCount++" :disabled="!mealsPicked">
 								<div class="flex w-auto">
 									<span>
 										Áfram
@@ -100,7 +100,7 @@
 
 					<div class="w-full mt-12 px-6 md:px-0">
 						<div class="flex justify-between">
-							<button id="prev-button" @click="stepCount--">
+							<button class="prev-button" @click="stepCount--">
 								<div class="flex w-auto">
 									<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
 									<span>
@@ -108,7 +108,7 @@
 									</span>
 								</div>
 							</button>
-							<button id="next-button" @click="stepCount++" :disabled="!veganPicked">
+							<button class="next-button" @click="stepCount++" :disabled="!veganPicked">
 								<div class="flex w-auto">
 									<span>
 										Áfram
@@ -132,7 +132,7 @@
 						<div class="flex flex-col md:flex-row -mx-2">
 							<div class="flex-1 h-auto mb-8 md:mb-0">
 								<div class="flex h-48 items-center">
-									<input type="radio" id="Evrópa" value="Evrópa" class="opacity-0 fixed w-0" v-model="countryPicked">
+									<input type="radio" id="Evrópa" value="Evrópa" class="opacity-0 fixed w-0" v-model="continentsPicked">
 									<label for="Evrópa" class="inline-block selection unselected flex-1 h-48">
 										<i class="fad fa-globe-europe fa-4x pt-8"></i>
 										<h4 class="font-bold uppercase pt-4">Evrópa</h4>
@@ -142,7 +142,7 @@
 
 							<div class="flex-1 h-auto mb-8 md:mb-0">
 								<div class="flex h-48 items-center">
-									<input type="radio" id="Asía" value="Asía" class="opacity-0 fixed w-0" v-model="countryPicked">
+									<input type="radio" id="Asía" value="Asía" class="opacity-0 fixed w-0" v-model="continentsPicked">
 									<label for="Asía" class="inline-block selection unselected flex-1 h-48">
 										<i class="fad fa-globe-asia fa-4x pt-8"></i>
 										<h4 class="font-bold uppercase pt-4">Asía</h4>
@@ -152,7 +152,7 @@
 
 							<div class="flex-1 h-auto mb-8 md:mb-0">
 								<div class="flex h-48 items-center">
-									<input type="radio" id="Suður-Ameríka" value="Suður-Ameríka" class="opacity-0 fixed w-0" v-model="countryPicked">
+									<input type="radio" id="Suður-Ameríka" value="Suður-Ameríka" class="opacity-0 fixed w-0" v-model="continentsPicked">
 									<label for="Suður-Ameríka" class="inline-block selection unselected flex-1 h-48">
 										<i class="fad fa-globe-americas fa-4x pt-8"></i>
 										<h4 class="font-bold uppercase pt-4">Suður-Ameríka</h4>
@@ -162,7 +162,7 @@
 
 							<!-- <div class="flex-1 h-auto mb-8 md:mb-0">
 								<div class="flex h-48 items-center">
-									<input type="radio" id="Afríka" value="Afríka" class="opacity-0 fixed w-0" v-model="countryPicked">
+									<input type="radio" id="Afríka" value="Afríka" class="opacity-0 fixed w-0" v-model="continentsPicked">
 									<label for="Afríka" class="inline-block selection unselected flex-1 h-48">
 										<i class="fad fa-globe-africa fa-4x pt-8"></i>
 										<h4 class="font-bold uppercase pt-4">Afríka</h4>
@@ -174,7 +174,7 @@
 
 					<div class="w-full mt-12 px-6 md:px-0">
 						<div class="flex justify-between">
-							<button id="prev-button" @click="stepCount--">
+							<button class="prev-button" @click="stepCount--">
 								<div class="flex w-auto">
 									<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
 									<span>
@@ -182,7 +182,7 @@
 									</span>
 								</div>
 							</button>
-							<button id="next-button" @click="stepCount++" :disabled="!countryPicked">
+							<button class="next-button" @click="stepCount++" :disabled="!continentsPicked">
 								<div class="flex w-auto">
 									<span>
 										Áfram
@@ -258,7 +258,7 @@
 
 					<div class="w-full mt-12 px-6 md:px-0">
 						<div class="flex justify-between">
-							<button id="prev-button" @click="stepCount--">
+							<button class="prev-button" @click="stepCount--">
 								<div class="flex w-auto">
 									<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
 									<span>
@@ -266,7 +266,7 @@
 									</span>
 								</div>
 							</button>
-							<button id="next-button" @click="stepCount++" :disabled="!foodPicked">
+							<button class="next-button" @click="stepCount++" :disabled="!foodPicked">
 								<div class="flex w-auto">
 									<span>
 										Áfram
@@ -279,7 +279,7 @@
 				</div>
 			</div>
 
-			<div class="w-full h-auto" v-if="showSpiceSlide">
+			<div class="w-full h-auto" v-if="stepCount === 5">
 				<div class="flex flex-col">
 					<div class="w-full mb-12 px-6 md:px-0">
 						<small><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
@@ -290,7 +290,7 @@
 						<div class="flex flex-col md:flex-row -mx-2">
 							<div class="flex-1 h-auto mb-8 md:mb-0">
 								<div class="flex h-48 items-center">
-									<input type="radio" id="Sterkt" value="Sterkt" class="opacity-0 fixed w-0" v-model="spicyPicked">
+									<input type="radio" id="Sterkt" value="1" class="opacity-0 fixed w-0" v-model="spicyPicked">
 									<label for="Sterkt" class="inline-block selection unselected flex-1 h-48">
 										<i class="fad fa-pepper-hot fa-4x pt-8"></i>
 										<h4 class="font-bold uppercase pt-4">Sterkt</h4>
@@ -300,7 +300,7 @@
 
 							<div class="flex-1 h-auto mb-8 md:mb-0">
 								<div class="flex h-48 items-center">
-									<input type="radio" id="EkkiSterkt" value="Ekki Sterkt" class="opacity-0 fixed w-0" v-model="spicyPicked">
+									<input type="radio" id="EkkiSterkt" value="0" class="opacity-0 fixed w-0" v-model="spicyPicked">
 									<label for="EkkiSterkt" class="inline-block selection unselected flex-1 h-48">
 										<i class="fad fa-leaf fa-4x pt-8"></i>
 										<h4 class="font-bold uppercase pt-4">Ekki Sterkt</h4>
@@ -312,7 +312,7 @@
 
 					<div class="w-full mt-12 px-6 md:px-0">
 						<div class="flex justify-between">
-							<button id="prev-button" @click="stepCount--">
+							<button class="prev-button" @click="stepCount--">
 								<div class="flex w-auto">
 									<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
 									<span>
@@ -320,7 +320,7 @@
 									</span>
 								</div>
 							</button>
-							<button id="next-button" @click="stepCount++" :disabled="!spicyPicked">
+							<button class="next-button" @click="stepCount++" :disabled="!spicyPicked">
 								<div class="flex w-auto">
 									<span>
 										Áfram
@@ -359,7 +359,7 @@
 								</tr>
 								<tr class="flex">
 									<td class="w-6/12 py-4 border-b border-grey-light">Frá hvaða landi viltu hafa matinn þinn?</td>
-									<td class="flex-1 py-4 border-b border-grey-light"><span v-text="countryPicked"></span></td>
+									<td class="flex-1 py-4 border-b border-grey-light"><span v-text="continentsPicked"></span></td>
 								</tr>
 								<tr class="flex">
 									<td class="w-6/12 py-4 border-b border-grey-light">Í hverju ertu í stuði fyrir?</td>
@@ -367,7 +367,8 @@
 								</tr>
 								<tr class="flex">
 									<td class="w-6/12 py-4 border-b border-grey-light">Viltu sterkan mat eða ekki?</td>
-									<td class="flex-1 py-4 border-b border-grey-light"><span v-text="spicyPicked"></span></td>
+									<td class="flex-1 py-4 border-b border-grey-light" v-if="spicyPicked !== 0">Já</td> <!-- skilar vitlausu-->
+									<td class="flex-1 py-4 border-b border-grey-light" v-else>Nei</td>
 								</tr>
 							</tbody>
 						</table>
@@ -375,7 +376,7 @@
 
 					<div class="w-full mt-12 px-6 md:px-0">
 						<div class="flex justify-between">
-							<button id="prev-button" @click="stepCount--">
+							<button class="prev-button" @click="stepCount--">
 								<div class="flex w-auto">
 									<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
 									<span>
@@ -383,7 +384,7 @@
 									</span>
 								</div>
 							</button>
-							<button id="next-button" @click="submitForm">
+							<button class="next-button" @click.once="submitForm(); stepCount++;">
 								<div class="flex w-auto">
 									<span>
 										Áfram
@@ -395,7 +396,37 @@
 					</div>
 				</div>
 			</div>
-		</form>
+
+			<div class="w-full h-auto" v-if="stepCount === 7">
+				<div class="flex flex-col">
+					<div class="w-full mb-12 px-6 md:px-0">
+						<h2 class="font-medium text-4xl">Hér er einhvað handa þér</h2>
+					</div>
+
+					<div class="w-full px-6 md:px-0">
+						<div v-for="first in recipes">
+							<div v-for="recipe in first">
+								<p class="text-2xl mb-3"><strong>{{ recipe.title }}</strong></p>
+								<p>{{ recipe.paragraph }}</p>
+							</div>  
+						</div>
+					</div>
+
+					<div class="w-full mt-12 px-6 md:px-0">
+						<div class="flex justify-between">
+							<button class="prev-button" @click="stepCount--">
+								<div class="flex w-auto">
+									<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
+									<span>
+										Til baka
+									</span>
+								</div>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -407,30 +438,39 @@ export default {
 			numberOfSlides: 6,
 			mealsPicked: '',
 			veganPicked: '',
-			countryPicked: '',
+			continentsPicked: '',
 			foodPicked: '',
 			spicyPicked: '',
+			executed: false,
+			recipes: []
 		}
 	},
 
 	methods: {
 		submitForm: function () {
-			axios.post('/uppskriftir/sækja', {
-				firstName: 'Fred',
-				lastName: 'Flintstone'
-			})
-			.then(function (response) {
-				console.log(response);
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
-		}
-	},
+			let self = this;
 
-	computed: {
-		showSpiceSlide() {
-			return this.stepCount === 5 && this.mealsPicked === 'Kvöldmat';
+			if (self.executed === true) {
+
+			} else {
+				self.executed = true;
+
+				axios.get('/uppskriftir/sækja', { // sækjir gögn úr gagngrunni
+					params: {
+						maltid: this.mealsPicked,
+						vegan: this.veganPicked,
+						heimsalfa: this.continentsPicked,
+						kjot: this.foodPicked,
+						spicy: this.spicyPicked
+					}
+				})
+				.then(function (response) {
+					self.recipes.push(response.data);
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
+			}
 		}
 	}
 };
@@ -452,28 +492,28 @@ button {
 
 button:focus {outline:0;}
 
-#next-button {
+.next-button {
 	background: #E67635;
 	color: white;
 	border-color: #E67635;
 }
 
-#next-button:hover {
+.next-button:hover {
 	background: #EF8E58;
 	border-color: #EF8E58;
 }
 
-#next-button:disabled {
+.next-button:disabled {
 	background: transparent;
 	color: #9E9E9E;
 	border-color: #9E9E9E
 }
 
-#prev-button {
+.prev-button {
 	border-color: #9E9E9E;
 }
 
-#prev-button:hover {
+.prev-button:hover {
 	background: #9E9E9E;
 	border-color: #9E9E9E;
 	color: #F7F7F7;

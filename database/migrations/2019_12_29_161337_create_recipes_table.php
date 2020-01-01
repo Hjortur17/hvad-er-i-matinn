@@ -13,26 +13,14 @@ class CreateRecipesTable extends Migration
      */
     public function up()
     {
-        Schema::create('recipes', function (Blueprint $table) {
+        Schema::create('recipes', function (Blueprint $table) { // breytta
             $table->bigIncrements('id');
-
-            $table->boolean('hadeigismatur');
-            $table->boolean('kvoldmatur');
-
-            $table->boolean('vegan');
-            $table->boolean('veganfisk');
-            $table->boolean('ekkivegan');
-
-            $table->boolean('evropa');
-            $table->boolean('asia');
-            $table->boolean('amerika');
-
-            $table->boolean('fisk');
-            $table->boolean('kjot');
-            $table->boolean('kjukling');
-            $table->boolean('supa');
-            $table->boolean('annad');
-
+            $table->string('title');
+            $table->text('paragraph');
+            $table->string('maltid');
+            $table->string('vegan');
+            $table->string('heimsalfa');
+            $table->string('kjot');
             $table->boolean('spicy');
             $table->timestamps();
         });

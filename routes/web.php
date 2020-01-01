@@ -4,4 +4,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/uppskriftir/sækja', 'RecipesController@index');
+Route::get('/uppskriftir/sækja', 'RecipesController@show');
