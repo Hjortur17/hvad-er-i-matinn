@@ -2289,7 +2289,6 @@ __webpack_require__.r(__webpack_exports__);
       if (self.executed === true) {} else {
         self.executed = true;
         axios.get('/uppskriftir/sækja', {
-          // sækjir gögn úr gagngrunni
           params: {
             maltid: this.mealsPicked,
             vegan: this.veganPicked,
@@ -3467,7 +3466,7 @@ var render = function() {
         ? _c("div", { staticClass: "w-full h-auto" }, [
             _c("div", { staticClass: "flex flex-col" }, [
               _c("div", { staticClass: "w-full mb-12 px-6 md:px-0" }, [
-                _c("small", [
+                _c("small", { staticClass: "text-gray-600" }, [
                   _c("span", {
                     domProps: { textContent: _vm._s(_vm.stepCount) }
                   }),
@@ -3574,7 +3573,7 @@ var render = function() {
         ? _c("div", { staticClass: "w-full h-auto" }, [
             _c("div", { staticClass: "flex flex-col" }, [
               _c("div", { staticClass: "w-full mb-12 px-6 md:px-0" }, [
-                _c("small", [
+                _c("small", { staticClass: "text-gray-600" }, [
                   _c("span", {
                     domProps: { textContent: _vm._s(_vm.stepCount) }
                   }),
@@ -3723,7 +3722,7 @@ var render = function() {
         ? _c("div", { staticClass: "w-full h-auto" }, [
             _c("div", { staticClass: "flex flex-col" }, [
               _c("div", { staticClass: "w-full mb-12 px-6 md:px-0" }, [
-                _c("small", [
+                _c("small", { staticClass: "text-gray-600" }, [
                   _c("span", {
                     domProps: { textContent: _vm._s(_vm.stepCount) }
                   }),
@@ -3867,7 +3866,7 @@ var render = function() {
         ? _c("div", { staticClass: "w-full h-auto" }, [
             _c("div", { staticClass: "flex flex-col" }, [
               _c("div", { staticClass: "w-full mb-12 px-6 md:px-0" }, [
-                _c("small", [
+                _c("small", { staticClass: "text-gray-600" }, [
                   _c("span", {
                     domProps: { textContent: _vm._s(_vm.stepCount) }
                   }),
@@ -4067,7 +4066,7 @@ var render = function() {
         ? _c("div", { staticClass: "w-full h-auto" }, [
             _c("div", { staticClass: "flex flex-col" }, [
               _c("div", { staticClass: "w-full mb-12 px-6 md:px-0" }, [
-                _c("small", [
+                _c("small", { staticClass: "text-gray-600" }, [
                   _c("span", {
                     domProps: { textContent: _vm._s(_vm.stepCount) }
                   }),
@@ -4176,7 +4175,7 @@ var render = function() {
         ? _c("div", { staticClass: "w-full h-auto" }, [
             _c("div", { staticClass: "flex flex-col" }, [
               _c("div", { staticClass: "w-full mb-12 px-6 md:px-0" }, [
-                _c("small", [
+                _c("small", { staticClass: "text-gray-600" }, [
                   _c("span", {
                     domProps: { textContent: _vm._s(_vm.stepCount) }
                   }),
@@ -4307,7 +4306,7 @@ var render = function() {
                           [_vm._v("Viltu sterkan mat eða ekki?")]
                         ),
                         _vm._v(" "),
-                        _vm.spicyPicked !== 0
+                        _vm.spicyPicked === "1"
                           ? _c(
                               "td",
                               {

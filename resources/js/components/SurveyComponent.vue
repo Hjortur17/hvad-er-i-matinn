@@ -3,7 +3,7 @@
 		<div class="w-full h-auto" v-if="stepCount === 1">
 			<div class="flex flex-col">
 				<div class="w-full mb-12 px-6 md:px-0">
-					<small><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
+					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
 					<h2 class="font-medium text-4xl">Eftir hverju ertu að leita?</h2>
 				</div>
 
@@ -59,7 +59,7 @@
 		<div class="w-full h-auto" v-if="stepCount === 2">
 			<div class="flex flex-col">
 				<div class="w-full mb-12 px-6 md:px-0">
-					<small><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
+					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
 					<h2 class="font-medium text-4xl">Ertu vegan?</h2>
 				</div>
 
@@ -123,7 +123,7 @@
 		<div class="w-full h-auto" v-if="stepCount === 3">
 			<div class="flex flex-col">
 				<div class="w-full mb-12 px-6 md:px-0">
-					<small><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
+					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
 					<h2 class="font-medium text-4xl">Frá hvaða landi viltu hafa matinn þinn?</h2>
 				</div>
 
@@ -197,7 +197,7 @@
 		<div class="w-full h-auto" v-if="stepCount === 4">
 			<div class="flex flex-col">
 				<div class="w-full mb-12 px-6 md:px-0">
-					<small><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
+					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
 					<h2 class="font-medium text-4xl">Í hverju ertu í stuði fyrir?</h2>
 				</div>
 
@@ -281,7 +281,7 @@
 		<div class="w-full h-auto" v-if="stepCount === 5">
 			<div class="flex flex-col">
 				<div class="w-full mb-12 px-6 md:px-0">
-					<small><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
+					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
 					<h2 class="font-medium text-4xl">Viltu sterkan mat eða ekki?</h2>
 				</div>
 
@@ -335,12 +335,12 @@
 		<div class="w-full h-auto" v-if="stepCount === 6">
 			<div class="flex flex-col">
 				<div class="w-full mb-12 px-6 md:px-0">
-					<small><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
+					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
 					<h2 class="font-medium text-4xl">Er þetta rétt?</h2>
 				</div>
 
 				<div class="w-full px-6 md:px-0">
-					<table class="text-left w-full border-collapse"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
+					<table class="text-left w-full border-collapse">
 						<thead>
 							<tr class="flex">
 								<th class="w-6/12 py-4 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Spurning</th>
@@ -366,7 +366,7 @@
 							</tr>
 							<tr class="flex">
 								<td class="w-6/12 py-4 border-b border-grey-light">Viltu sterkan mat eða ekki?</td>
-								<td class="flex-1 py-4 border-b border-grey-light" v-if="spicyPicked !== 0">Já</td> <!-- skilar vitlausu-->
+								<td class="flex-1 py-4 border-b border-grey-light" v-if="spicyPicked === '1'">Já</td>
 								<td class="flex-1 py-4 border-b border-grey-light" v-else>Nei</td>
 							</tr>
 						</tbody>
@@ -453,7 +453,7 @@ export default {
 			} else {
 				self.executed = true;
 
-				axios.get('/uppskriftir/sækja', { // sækjir gögn úr gagngrunni
+				axios.get('/uppskriftir/sækja', {
 					params: {
 						maltid: this.mealsPicked,
 						vegan: this.veganPicked,
