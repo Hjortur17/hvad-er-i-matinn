@@ -1,5 +1,5 @@
 <template>
-	<div class="absolute top-0 right-0 pt-20 pr-40">
+	<div class="absolute top-0 right-0 pt-10 pr-20">
 		<div v-if="mode === 'dark-mode'">
 			<a @click="$emit('toggle')" class="cursor-pointer" title="Dark mode">
 				<i class="fad fa-moon fa-lg"></i>

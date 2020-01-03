@@ -5,8 +5,8 @@
 
 			<survey :mode="mode"></survey>
 
-			<div class="text-center">
-				<small class="text-primary-gray">Þessi síða var gerð af <a href="https://hjorturfreyr.com" class="hover:text-primary transition" target="_blank">Hirti Frey</a></small>
+			<div class="fixed bottom-0 left-0 pl-20 pb-10 text-center">
+				<small class="text-primary-gray">Þessi síða var gerð af <a href="https://hjorturfreyr.com" class="hover:text-primary transition" target="_blank" rel="noopener">Hirti Frey</a></small>
 			</div>
 		</div>
 	</div>

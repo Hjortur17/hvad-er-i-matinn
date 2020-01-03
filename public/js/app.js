@@ -3624,19 +3624,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center" }, [
-      _c("small", { staticClass: "text-primary-gray" }, [
-        _vm._v("Þessi síða var gerð af "),
-        _c(
-          "a",
-          {
-            staticClass: "hover:text-primary transition",
-            attrs: { href: "https://hjorturfreyr.com", target: "_blank" }
-          },
-          [_vm._v("Hirti Frey")]
-        )
-      ])
-    ])
+    return _c(
+      "div",
+      { staticClass: "fixed bottom-0 left-0 pl-20 pb-10 text-center" },
+      [
+        _c("small", { staticClass: "text-primary-gray" }, [
+          _vm._v("Þessi síða var gerð af "),
+          _c(
+            "a",
+            {
+              staticClass: "hover:text-primary transition",
+              attrs: {
+                href: "https://hjorturfreyr.com",
+                target: "_blank",
+                rel: "noopener"
+              }
+            },
+            [_vm._v("Hirti Frey")]
+          )
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -3660,7 +3668,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "absolute top-0 right-0 pt-20 pr-40" }, [
+  return _c("div", { staticClass: "absolute top-0 right-0 pt-10 pr-20" }, [
     _vm.mode === "dark-mode"
       ? _c("div", [
           _c(
