@@ -13,6 +13,7 @@ class RecipesController extends Controller
 	 * @param  \App\Recipes  $recipes
 	 * @return \Illuminate\Http\Response
 	*/
+	
 	public function show(Request $request)
 	{
 		$recipes = Recipes::where([
@@ -23,6 +24,8 @@ class RecipesController extends Controller
 			['spicy', $request->spicy],
 		])->get();
 
-		return $recipes;
+		return response()->json([
+			'recipes' => $recipes,
+		]);
 	}
 }

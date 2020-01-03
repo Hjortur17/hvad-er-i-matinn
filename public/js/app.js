@@ -1829,6 +1829,86 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HomepageComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HomepageComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NavbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavbarComponent */ "./resources/js/components/NavbarComponent.vue");
+/* harmony import */ var _SurveyComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SurveyComponent */ "./resources/js/components/SurveyComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    navbar: _NavbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    survey: _SurveyComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      mode: 'light-mode'
+    };
+  },
+  methods: {
+    toggleDarkMode: function toggleDarkMode() {
+      if (this.mode === 'dark-mode') {
+        this.mode = 'light-mode';
+      } else {
+        this.mode = 'dark-mode';
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NavbarComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NavbarComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['mode']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SurveyComponent.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SurveyComponent.vue?vue&type=script&lang=js& ***!
@@ -2268,7 +2348,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['mode'],
   data: function data() {
     return {
       stepCount: 1,
@@ -2284,24 +2429,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      var self = this;
+      var _this = this;
 
-      if (self.executed === true) {} else {
-        self.executed = true;
-        axios.get('/uppskriftir/sækja', {
-          params: {
-            maltid: this.mealsPicked,
-            vegan: this.veganPicked,
-            heimsalfa: this.continentsPicked,
-            kjot: this.foodPicked,
-            spicy: this.spicyPicked
-          }
-        }).then(function (response) {
-          self.recipes.push(response.data);
-        })["catch"](function (error) {
-          console.log(error);
-        });
-      }
+      axios.get('/uppskriftir/sækja', {
+        params: {
+          maltid: this.mealsPicked,
+          vegan: this.veganPicked,
+          heimsalfa: this.continentsPicked,
+          kjot: this.foodPicked,
+          spicy: this.spicyPicked
+        }
+      }).then(function (response) {
+        _this.recipes = response.data.recipes;
+        _this.stepCount++;
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -2320,7 +2463,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".next-button:disabled {\n  background: transparent;\n  color: #9E9E9E;\n  border-color: #9E9E9E\n}\ninput[type=\"radio\"] + label {\n  border: 3px solid grey;\n  background: transparent;\n  padding-right: 1rem;\n  padding-left: 1rem;\n  padding-top: 0.5rem;\n  padding-bottom: 0.5rem;\n  margin: 0.5rem;\n  text-align: center;\n  -webkit-transition: all .15s ease-out;\n  transition: all .15s ease-out;\n  border-color: #9E9E9E;\n  color: #9E9E9E;\n}\ninput[type=\"radio\"] + label:hover {\n  background: white;\n  border-color: #E67635;\n  color: #E67635;\n}\ninput[type=\"radio\"]:checked + label {\n  background: white;\n  border-color: #E67635;\n  color: #E67635;\n}\n", ""]);
+exports.push([module.i, ".next-button:disabled {\n  background: transparent;\n  color: #9E9E9E;\n  border-color: #9E9E9E\n}\ninput[type=\"radio\"] + label:hover {\n  background: white;\n  border-color: #E67635;\n  color: #E67635;\n}\ninput[type=\"radio\"]:checked + label {\n  background: white;\n  border-color: #E67635;\n  color: #E67635;\n}\n", ""]);
 
 // exports
 
@@ -3443,6 +3586,121 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HomepageComponent.vue?vue&type=template&id=2ba25654&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HomepageComponent.vue?vue&type=template&id=2ba25654& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { class: _vm.mode }, [
+    _c(
+      "div",
+      { staticClass: "container max-w-4xl mx-auto" },
+      [
+        _c("navbar", {
+          attrs: { mode: _vm.mode },
+          on: { toggle: _vm.toggleDarkMode }
+        }),
+        _vm._v(" "),
+        _c("survey", { attrs: { mode: _vm.mode } }),
+        _vm._v(" "),
+        _vm._m(0)
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("small", { staticClass: "text-primary-gray" }, [
+        _vm._v("Þessi síða var gerð af "),
+        _c(
+          "a",
+          {
+            staticClass: "hover:text-primary transition",
+            attrs: { href: "https://hjorturfreyr.com", target: "_blank" }
+          },
+          [_vm._v("Hirti Frey")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NavbarComponent.vue?vue&type=template&id=485090b2&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NavbarComponent.vue?vue&type=template&id=485090b2& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "absolute top-0 right-0 pt-20 pr-40" }, [
+    _vm.mode === "dark-mode"
+      ? _c("div", [
+          _c(
+            "a",
+            {
+              staticClass: "cursor-pointer",
+              attrs: { title: "Dark mode" },
+              on: {
+                click: function($event) {
+                  return _vm.$emit("toggle")
+                }
+              }
+            },
+            [_c("i", { staticClass: "fad fa-moon fa-lg" })]
+          )
+        ])
+      : _c("div", [
+          _c(
+            "a",
+            {
+              staticClass: "cursor-pointer",
+              attrs: { title: "Dark mode" },
+              on: {
+                click: function($event) {
+                  return _vm.$emit("toggle")
+                }
+              }
+            },
+            [_c("i", { staticClass: "fad fa-sun fa-lg" })]
+          )
+        ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SurveyComponent.vue?vue&type=template&id=cd73a4b0&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SurveyComponent.vue?vue&type=template&id=cd73a4b0& ***!
@@ -3510,7 +3768,27 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(0)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "Hádeigismat" }
+                        },
+                        [
+                          _c("i", { staticClass: "fad fa-bacon fa-4x pt-8" }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Hádeigismat")]
+                          )
+                        ]
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -3541,7 +3819,27 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(1)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "Kvöldmat" }
+                        },
+                        [
+                          _c("i", { staticClass: "fad fa-pizza fa-4x pt-8" }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Kvöldmat")]
+                          )
+                        ]
+                      )
                     ])
                   ])
                 ])
@@ -3561,7 +3859,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._m(2)]
+                    [_vm._m(0)]
                   )
                 ])
               ])
@@ -3611,7 +3909,29 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(3)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "Vegan" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fad fa-leaf-heart fa-4x pt-8"
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Vegan")]
+                          )
+                        ]
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -3645,7 +3965,27 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(4)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "VeganEnBorðaFisk" }
+                        },
+                        [
+                          _c("i", { staticClass: "fad fa-fish fa-4x pt-8" }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Vegan en borða fisk")]
+                          )
+                        ]
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -3676,7 +4016,27 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(5)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "EkkiVegan" }
+                        },
+                        [
+                          _c("i", { staticClass: "fad fa-steak fa-4x pt-8" }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Er ekki vegan")]
+                          )
+                        ]
+                      )
                     ])
                   ])
                 ])
@@ -3688,14 +4048,14 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "border-primary-gray hover:bg-primary-gray hover:text-gray-text transition",
+                        "border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition",
                       on: {
                         click: function($event) {
                           _vm.stepCount--
                         }
                       }
                     },
-                    [_vm._m(6)]
+                    [_vm._m(1)]
                   ),
                   _vm._v(" "),
                   _c(
@@ -3710,7 +4070,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._m(7)]
+                    [_vm._m(2)]
                   )
                 ])
               ])
@@ -3762,7 +4122,29 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(8)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "Evrópa" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fad fa-globe-europe fa-4x pt-8"
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Evrópa")]
+                          )
+                        ]
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -3789,7 +4171,29 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(9)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "Asía" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fad fa-globe-asia fa-4x pt-8"
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Asía")]
+                          )
+                        ]
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -3820,7 +4224,29 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(10)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "Suður-Ameríka" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fad fa-globe-americas fa-4x pt-8"
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Suður-Ameríka")]
+                          )
+                        ]
+                      )
                     ])
                   ])
                 ])
@@ -3832,14 +4258,14 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "border-primary-gray hover:bg-primary-gray hover:text-gray-text transition",
+                        "border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition",
                       on: {
                         click: function($event) {
                           _vm.stepCount--
                         }
                       }
                     },
-                    [_vm._m(11)]
+                    [_vm._m(3)]
                   ),
                   _vm._v(" "),
                   _c(
@@ -3854,7 +4280,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._m(12)]
+                    [_vm._m(4)]
                   )
                 ])
               ])
@@ -3907,7 +4333,29 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm._m(13)
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "selection inline-block flex-1 h-48 hover:shadow-md",
+                              class:
+                                _vm.mode === "dark-mode"
+                                  ? "dark-mode-selection"
+                                  : "",
+                              attrs: { for: "Fisk" }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fad fa-fish fa-4x pt-8"
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "h4",
+                                { staticClass: "font-bold uppercase pt-4" },
+                                [_vm._v("Fisk")]
+                              )
+                            ]
+                          )
                         ])
                       ])
                     : _vm._e(),
@@ -3936,7 +4384,29 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm._m(14)
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "selection inline-block flex-1 h-48 hover:shadow-md",
+                              class:
+                                _vm.mode === "dark-mode"
+                                  ? "dark-mode-selection"
+                                  : "",
+                              attrs: { for: "Kjöt" }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fad fa-steak fa-4x pt-8"
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "h4",
+                                { staticClass: "font-bold uppercase pt-4" },
+                                [_vm._v("Kjöt")]
+                              )
+                            ]
+                          )
                         ])
                       ])
                     : _vm._e(),
@@ -3969,7 +4439,29 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm._m(15)
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "selection inline-block flex-1 h-48 hover:shadow-md",
+                              class:
+                                _vm.mode === "dark-mode"
+                                  ? "dark-mode-selection"
+                                  : "",
+                              attrs: { for: "Kjúkling" }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "fad fa-drumstick fa-4x pt-8"
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "h4",
+                                { staticClass: "font-bold uppercase pt-4" },
+                                [_vm._v("Kjúkling")]
+                              )
+                            ]
+                          )
                         ])
                       ])
                     : _vm._e(),
@@ -3995,7 +4487,27 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(16)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "Súpu" }
+                        },
+                        [
+                          _c("i", { staticClass: "fad fa-soup fa-4x pt-8" }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Súpu")]
+                          )
+                        ]
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -4020,7 +4532,27 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(17)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "Annað" }
+                        },
+                        [
+                          _c("i", { staticClass: "fad fa-salad fa-4x pt-8" }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Annað")]
+                          )
+                        ]
+                      )
                     ])
                   ])
                 ])
@@ -4032,14 +4564,14 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "border-primary-gray hover:bg-primary-gray hover:text-gray-text transition",
+                        "border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition",
                       on: {
                         click: function($event) {
                           _vm.stepCount--
                         }
                       }
                     },
-                    [_vm._m(18)]
+                    [_vm._m(5)]
                   ),
                   _vm._v(" "),
                   _c(
@@ -4054,7 +4586,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._m(19)]
+                    [_vm._m(6)]
                   )
                 ])
               ])
@@ -4104,7 +4636,29 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(20)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "Sterkt" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fad fa-pepper-hot fa-4x pt-8"
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Sterkt")]
+                          )
+                        ]
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -4129,7 +4683,27 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(21)
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "selection inline-block flex-1 h-48 hover:shadow-md",
+                          class:
+                            _vm.mode === "dark-mode"
+                              ? "dark-mode-selection"
+                              : "",
+                          attrs: { for: "EkkiSterkt" }
+                        },
+                        [
+                          _c("i", { staticClass: "fad fa-leaf fa-4x pt-8" }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-bold uppercase pt-4" },
+                            [_vm._v("Ekki Sterkt")]
+                          )
+                        ]
+                      )
                     ])
                   ])
                 ])
@@ -4141,14 +4715,14 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "border-primary-gray hover:bg-primary-gray hover:text-gray-text transition",
+                        "border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition",
                       on: {
                         click: function($event) {
                           _vm.stepCount--
                         }
                       }
                     },
-                    [_vm._m(22)]
+                    [_vm._m(7)]
                   ),
                   _vm._v(" "),
                   _c(
@@ -4163,7 +4737,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._m(23)]
+                    [_vm._m(8)]
                   )
                 ])
               ])
@@ -4195,7 +4769,7 @@ var render = function() {
                   "table",
                   { staticClass: "text-left w-full border-collapse" },
                   [
-                    _vm._m(24),
+                    _vm._m(9),
                     _vm._v(" "),
                     _c("tbody", [
                       _c("tr", { staticClass: "flex" }, [
@@ -4203,16 +4777,30 @@ var render = function() {
                           "td",
                           {
                             staticClass:
-                              "w-6/12 py-4 border-b border-grey-light"
+                              "w-6/12 py-4 border-b border-primary-gray"
                           },
-                          [_vm._v("Eftir hverju ertu að leita?")]
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "hover:text-primary transition cursor-pointer",
+                                on: {
+                                  click: function($event) {
+                                    _vm.stepCount = 1
+                                  }
+                                }
+                              },
+                              [_vm._v("Eftir hverju ertu að leita?")]
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
                           "td",
                           {
                             staticClass:
-                              "flex-1 py-4 border-b border-grey-light"
+                              "flex-1 py-4 border-b border-primary-gray"
                           },
                           [
                             _c("span", {
@@ -4227,16 +4815,30 @@ var render = function() {
                           "td",
                           {
                             staticClass:
-                              "w-6/12 py-4 border-b border-grey-light"
+                              "w-6/12 py-4 border-b border-primary-gray"
                           },
-                          [_vm._v("Ertu vegan?")]
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "hover:text-primary transition cursor-pointer",
+                                on: {
+                                  click: function($event) {
+                                    _vm.stepCount = 2
+                                  }
+                                }
+                              },
+                              [_vm._v("Ertu vegan?")]
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
                           "td",
                           {
                             staticClass:
-                              "flex-1 py-4 border-b border-grey-light"
+                              "flex-1 py-4 border-b border-primary-gray"
                           },
                           [
                             _c("span", {
@@ -4251,16 +4853,34 @@ var render = function() {
                           "td",
                           {
                             staticClass:
-                              "w-6/12 py-4 border-b border-grey-light"
+                              "w-6/12 py-4 border-b border-primary-gray"
                           },
-                          [_vm._v("Frá hvaða landi viltu hafa matinn þinn?")]
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "hover:text-primary transition cursor-pointer",
+                                on: {
+                                  click: function($event) {
+                                    _vm.stepCount = 3
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "Frá hvaða landi viltu hafa matinn þinn?"
+                                )
+                              ]
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
                           "td",
                           {
                             staticClass:
-                              "flex-1 py-4 border-b border-grey-light"
+                              "flex-1 py-4 border-b border-primary-gray"
                           },
                           [
                             _c("span", {
@@ -4277,16 +4897,30 @@ var render = function() {
                           "td",
                           {
                             staticClass:
-                              "w-6/12 py-4 border-b border-grey-light"
+                              "w-6/12 py-4 border-b border-primary-gray"
                           },
-                          [_vm._v("Í hverju ertu í stuði fyrir?")]
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "hover:text-primary transition cursor-pointer",
+                                on: {
+                                  click: function($event) {
+                                    _vm.stepCount = 4
+                                  }
+                                }
+                              },
+                              [_vm._v("Í hverju ertu í stuði fyrir?")]
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
                           "td",
                           {
                             staticClass:
-                              "flex-1 py-4 border-b border-grey-light"
+                              "flex-1 py-4 border-b border-primary-gray"
                           },
                           [
                             _c("span", {
@@ -4301,9 +4935,23 @@ var render = function() {
                           "td",
                           {
                             staticClass:
-                              "w-6/12 py-4 border-b border-grey-light"
+                              "w-6/12 py-4 border-b border-primary-gray"
                           },
-                          [_vm._v("Viltu sterkan mat eða ekki?")]
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "hover:text-primary transition cursor-pointer",
+                                on: {
+                                  click: function($event) {
+                                    _vm.stepCount = 5
+                                  }
+                                }
+                              },
+                              [_vm._v("Viltu sterkan mat eða ekki?")]
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm.spicyPicked === "1"
@@ -4311,7 +4959,7 @@ var render = function() {
                               "td",
                               {
                                 staticClass:
-                                  "flex-1 py-4 border-b border-grey-light"
+                                  "flex-1 py-4 border-b border-primary-gray"
                               },
                               [_vm._v("Já")]
                             )
@@ -4319,7 +4967,7 @@ var render = function() {
                               "td",
                               {
                                 staticClass:
-                                  "flex-1 py-4 border-b border-grey-light"
+                                  "flex-1 py-4 border-b border-primary-gray"
                               },
                               [_vm._v("Nei")]
                             )
@@ -4335,14 +4983,14 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "border-primary-gray hover:bg-primary-gray hover:text-gray-text transition",
+                        "border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition",
                       on: {
                         click: function($event) {
                           _vm.stepCount--
                         }
                       }
                     },
-                    [_vm._m(25)]
+                    [_vm._m(10)]
                   ),
                   _vm._v(" "),
                   _c(
@@ -4357,7 +5005,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._m(26)]
+                    [_vm._m(11)]
                   )
                 ])
               ])
@@ -4368,47 +5016,59 @@ var render = function() {
       _vm.stepCount === 7
         ? _c("div", { staticClass: "w-full h-auto" }, [
             _c("div", { staticClass: "flex flex-col" }, [
-              _vm._m(27),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "w-full px-6 md:px-0" },
-                _vm._l(_vm.recipes, function(first) {
-                  return _c(
-                    "div",
-                    _vm._l(first, function(recipe) {
-                      return _c("div", [
-                        _c("p", { staticClass: "text-2xl mb-3" }, [
-                          _c("strong", [_vm._v(_vm._s(recipe.title))])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(recipe.paragraph))])
-                      ])
-                    }),
-                    0
-                  )
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "w-full mt-12 px-6 md:px-0" }, [
-                _c("div", { staticClass: "flex justify-between" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "border-primary-gray hover:bg-primary-gray hover:text-gray-text transition",
-                      on: {
-                        click: function($event) {
-                          _vm.stepCount--
+              _c("div", { staticClass: "w-full mb-12 px-6 md:px-0" }, [
+                _c("div", { staticClass: "flex" }, [
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition",
+                        on: {
+                          click: function($event) {
+                            _vm.stepCount--
+                          }
                         }
-                      }
-                    },
-                    [_vm._m(28)]
-                  )
+                      },
+                      [_vm._m(12)]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(13)
                 ])
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "w-full px-6 md:px-0" },
+              _vm._l(_vm.recipes, function(recipe) {
+                return _c("div", [
+                  _c("div", { staticClass: "flex" }, [
+                    _vm._m(14, true),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "w-2/3 z-20 p-6 bg-white shadow-lg" },
+                      [
+                        _c(
+                          "h2",
+                          { staticClass: "font-medium text-2xl leading-tight" },
+                          [_vm._v(_vm._s(recipe.title))]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "text-sm my-4" }, [
+                          _vm._v(_vm._s(recipe.paragraph))
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(15, true)
+                      ]
+                    )
+                  ])
+                ])
+              }),
+              0
+            )
           ])
         : _vm._e()
     ]
@@ -4419,113 +5079,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Hádeigismat" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-bacon fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
-          _vm._v("Hádeigismat")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Kvöldmat" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-pizza fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
-          _vm._v("Kvöldmat")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex w-auto" }, [
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t")]),
-      _vm._v(" "),
-      _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-6 self-center" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Vegan" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-leaf-heart fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Vegan")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "VeganEnBorðaFisk" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-fish fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
-          _vm._v("Vegan en borða fisk")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "EkkiVegan" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-steak fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
-          _vm._v("Er ekki vegan")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex w-auto" }, [
-      _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-6 self-center" }),
-      _vm._v(" "),
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t")])
+      _c("span", [
+        _vm._v("\n\t\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t\t\t"),
+        _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-2 self-center" })
+      ])
     ])
   },
   function() {
@@ -4533,74 +5091,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex w-auto" }, [
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t")]),
-      _vm._v(" "),
-      _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-6 self-center" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Evrópa" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-globe-europe fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
-          _vm._v("Evrópa")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Asía" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-globe-asia fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Asía")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Suður-Ameríka" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-globe-americas fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
-          _vm._v("Suður-Ameríka")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex w-auto" }, [
-      _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-6 self-center" }),
-      _vm._v(" "),
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t")])
+      _c("span", [
+        _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-2 self-center" }),
+        _vm._v("\n\t\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t\t")
+      ])
     ])
   },
   function() {
@@ -4608,106 +5102,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex w-auto" }, [
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t")]),
-      _vm._v(" "),
-      _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-6 self-center" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Fisk" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-fish fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Fisk")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Kjöt" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-steak fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Kjöt")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Kjúkling" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-drumstick fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
-          _vm._v("Kjúkling")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Súpu" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-soup fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Súpu")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Annað" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-salad fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [_vm._v("Annað")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex w-auto" }, [
-      _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-6 self-center" }),
-      _vm._v(" "),
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t")])
+      _c("span", [
+        _vm._v("\n\t\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t\t\t"),
+        _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-2 self-center" })
+      ])
     ])
   },
   function() {
@@ -4715,57 +5113,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex w-auto" }, [
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t")]),
-      _vm._v(" "),
-      _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-6 self-center" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "Sterkt" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-pepper-hot fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
-          _vm._v("Sterkt")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass: "inline-block selection unselected flex-1 h-48",
-        attrs: { for: "EkkiSterkt" }
-      },
-      [
-        _c("i", { staticClass: "fad fa-leaf fa-4x pt-8" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "font-bold uppercase pt-4" }, [
-          _vm._v("Ekki Sterkt")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex w-auto" }, [
-      _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-6 self-center" }),
-      _vm._v(" "),
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t")])
+      _c("span", [
+        _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-2 self-center" }),
+        _vm._v("\n\t\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t\t")
+      ])
     ])
   },
   function() {
@@ -4773,9 +5124,54 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex w-auto" }, [
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t")]),
-      _vm._v(" "),
-      _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-6 self-center" })
+      _c("span", [
+        _vm._v("\n\t\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t\t\t"),
+        _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-2 self-center" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-auto" }, [
+      _c("span", [
+        _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-2 self-center" }),
+        _vm._v("\n\t\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-auto" }, [
+      _c("span", [
+        _vm._v("\n\t\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t\t\t"),
+        _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-2 self-center" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-auto" }, [
+      _c("span", [
+        _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-2 self-center" }),
+        _vm._v("\n\t\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-auto" }, [
+      _c("span", [
+        _vm._v("\n\t\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t\t\t"),
+        _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-2 self-center" })
+      ])
     ])
   },
   function() {
@@ -4788,7 +5184,7 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "w-6/12 py-4 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light"
+              "w-6/12 py-2 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-primary-gray"
           },
           [_vm._v("Spurning")]
         ),
@@ -4797,7 +5193,7 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "flex-1 py-4 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light"
+              "flex-1 py-2 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-primary-gray"
           },
           [_vm._v("Þú valdir")]
         )
@@ -4809,28 +5205,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex w-auto" }, [
-      _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-6 self-center" }),
-      _vm._v(" "),
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex w-auto" }, [
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t")]),
-      _vm._v(" "),
-      _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-6 self-center" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-full mb-12 px-6 md:px-0" }, [
-      _c("h2", { staticClass: "font-medium text-4xl" }, [
-        _vm._v("Hér er einhvað handa þér")
+      _c("span", [
+        _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-2 self-center" }),
+        _vm._v("\n\t\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t\t")
       ])
     ])
   },
@@ -4839,9 +5216,125 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex w-auto" }, [
-      _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-6 self-center" }),
+      _c("span", [
+        _vm._v("\n\t\t\t\t\t\t\t\t\tÁfram\n\t\t\t\t\t\t\t\t\t"),
+        _c("i", { staticClass: "fad fa-long-arrow-alt-right pl-2 self-center" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-auto" }, [
+      _c("span", [
+        _c("i", { staticClass: "fad fa-long-arrow-alt-left pr-2 self-center" }),
+        _vm._v("\n\t\t\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex-1 self-center" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "self-center text-sm text-primary-gray hover:text-primary transition cursor-pointer flex float-right"
+        },
+        [
+          _vm._v("\n\t\t\t\t\t\t\t\tSækja nýja uppskrift\n\t\t\t\t\t\t\t\t"),
+          _c("i", { staticClass: "fas fa-sync-alt pl-2 self-center" })
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-1/2 z-10 self-center" }, [
+      _c("img", { attrs: { src: "/images/duck.jpg", width: "100%" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex" }, [
+      _c("div", { staticClass: "w-1/3" }, [
+        _c("table", { staticClass: "text-left w-full border-collapse" }, [
+          _c("tbody", [
+            _c("tr", { staticClass: "flex" }, [
+              _c(
+                "td",
+                { staticClass: "py-2 border-b border-primary-gray w-full" },
+                [_c("p", { staticClass: "text-sm" }, [_vm._v("2 andabringur")])]
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "flex" }, [
+              _c(
+                "td",
+                { staticClass: "py-2 border-b border-primary-gray w-full" },
+                [_c("p", { staticClass: "text-sm" }, [_vm._v("1kg kálhaus")])]
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "flex" }, [
+              _c(
+                "td",
+                { staticClass: "py-2 border-b border-primary-gray w-full" },
+                [_c("p", { staticClass: "text-sm" }, [_vm._v("500gr agúrka")])]
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "flex" }, [
+              _c(
+                "td",
+                { staticClass: "py-2 border-b border-primary-gray w-full" },
+                [
+                  _c("p", { staticClass: "text-sm" }, [
+                    _vm._v("250gr gulrætur")
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
       _vm._v(" "),
-      _c("span", [_vm._v("\n\t\t\t\t\t\t\t\tTil baka\n\t\t\t\t\t\t\t")])
+      _c("div", { staticClass: "flex-1 px-3" }, [
+        _c("p", { staticClass: "text-sm mb-2" }, [
+          _c("strong", [_vm._v("1.")]),
+          _vm._v(
+            "\n\t\t\t\t\t\t\t\t\t\tLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n\t\t\t\t\t\t\t\t\t\ttempor incididunt ut labore et dolore magna aliqua.\n\t\t\t\t\t\t\t\t\t"
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-sm mb-2" }, [
+          _c("strong", [_vm._v("2.")]),
+          _vm._v(
+            " \n\t\t\t\t\t\t\t\t\t\tUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n\t\t\t\t\t\t\t\t\t\tconsequat.\n\t\t\t\t\t\t\t\t\t"
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-sm mb-2" }, [
+          _c("strong", [_vm._v("3.")]),
+          _vm._v(
+            " \n\t\t\t\t\t\t\t\t\t\tDuis aute irure dolor in reprehenderit in voluptate velit esse\n\t\t\t\t\t\t\t\t\t\tcillum dolore eu fugiat nulla pariatur.\n\t\t\t\t\t\t\t\t\t"
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-sm mb-2" }, [
+          _c("strong", [_vm._v("4.")]),
+          _vm._v(
+            " \n\t\t\t\t\t\t\t\t\t\tExcepteur sint occaecat cupidatat non proident, sunt in culpa qui \n\t\t\t\t\t\t\t\t\t\tofficia deserunt mollit anim id est laborum.\n\t\t\t\t\t\t\t\t\t"
+          )
+        ])
+      ])
     ])
   }
 ]
@@ -16985,7 +17478,7 @@ module.exports = g;
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.component('survey', __webpack_require__(/*! ./components/SurveyComponent.vue */ "./resources/js/components/SurveyComponent.vue")["default"]);
+Vue.component('homepage', __webpack_require__(/*! ./components/HomepageComponent.vue */ "./resources/js/components/HomepageComponent.vue")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -17002,6 +17495,144 @@ var app = new Vue({
 // window._ = require('lodash');
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+/***/ }),
+
+/***/ "./resources/js/components/HomepageComponent.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/HomepageComponent.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _HomepageComponent_vue_vue_type_template_id_2ba25654___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HomepageComponent.vue?vue&type=template&id=2ba25654& */ "./resources/js/components/HomepageComponent.vue?vue&type=template&id=2ba25654&");
+/* harmony import */ var _HomepageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomepageComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/HomepageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _HomepageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _HomepageComponent_vue_vue_type_template_id_2ba25654___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _HomepageComponent_vue_vue_type_template_id_2ba25654___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/HomepageComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/HomepageComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/HomepageComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomepageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./HomepageComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HomepageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomepageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/HomepageComponent.vue?vue&type=template&id=2ba25654&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/HomepageComponent.vue?vue&type=template&id=2ba25654& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomepageComponent_vue_vue_type_template_id_2ba25654___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./HomepageComponent.vue?vue&type=template&id=2ba25654& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HomepageComponent.vue?vue&type=template&id=2ba25654&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomepageComponent_vue_vue_type_template_id_2ba25654___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomepageComponent_vue_vue_type_template_id_2ba25654___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/NavbarComponent.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/NavbarComponent.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NavbarComponent_vue_vue_type_template_id_485090b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavbarComponent.vue?vue&type=template&id=485090b2& */ "./resources/js/components/NavbarComponent.vue?vue&type=template&id=485090b2&");
+/* harmony import */ var _NavbarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NavbarComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/NavbarComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NavbarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NavbarComponent_vue_vue_type_template_id_485090b2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NavbarComponent_vue_vue_type_template_id_485090b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/NavbarComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/NavbarComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/NavbarComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NavbarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./NavbarComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NavbarComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NavbarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/NavbarComponent.vue?vue&type=template&id=485090b2&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/NavbarComponent.vue?vue&type=template&id=485090b2& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavbarComponent_vue_vue_type_template_id_485090b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./NavbarComponent.vue?vue&type=template&id=485090b2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NavbarComponent.vue?vue&type=template&id=485090b2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavbarComponent_vue_vue_type_template_id_485090b2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavbarComponent_vue_vue_type_template_id_485090b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

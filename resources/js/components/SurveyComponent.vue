@@ -12,7 +12,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Hádeigismat" value="Hádeigismat" class="opacity-0 fixed w-0" v-model="mealsPicked">
-								<label for="Hádeigismat" class="inline-block selection unselected flex-1 h-48">
+								<label for="Hádeigismat" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-bacon fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Hádeigismat</h4>
 								</label>
@@ -22,7 +22,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Kvöldmat" value="Kvöldmat" class="opacity-0 fixed w-0" v-model="mealsPicked">
-								<label for="Kvöldmat" class="inline-block selection unselected flex-1 h-48">
+								<label for="Kvöldmat" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-pizza fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Kvöldmat</h4>
 								</label>
@@ -32,7 +32,7 @@
 						<!-- <div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Eftirrétt" value="Eftirrétt" class="opacity-0 fixed w-0" v-model="mealsPicked">
-								<label for="Eftirrétt" class="inline-block selection unselected flex-1 h-48">
+								<label for="Eftirrétt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-birthday-cake fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Eftirrétt</h4>
 								</label>
@@ -47,8 +47,8 @@
 							<div class="flex w-auto">
 								<span>
 									Áfram
+									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
 								</span>
-								<i class="fad fa-long-arrow-alt-right pl-6 self-center"></i>
 							</div>
 						</button>
 					</div>
@@ -68,7 +68,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Vegan" value="Vegan" class="opacity-0 fixed w-0" v-model="veganPicked">
-								<label for="Vegan" class="inline-block selection unselected flex-1 h-48">
+								<label for="Vegan" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-leaf-heart fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Vegan</h4>
 								</label>
@@ -78,7 +78,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="VeganEnBorðaFisk" value="Vegan en borða fisk" class="opacity-0 fixed w-0" v-model="veganPicked">
-								<label for="VeganEnBorðaFisk" class="inline-block selection unselected flex-1 h-48">
+								<label for="VeganEnBorðaFisk" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-fish fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Vegan en borða fisk</h4>
 								</label>
@@ -88,7 +88,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="EkkiVegan" value="Ekki vegan" class="opacity-0 fixed w-0" v-model="veganPicked">
-								<label for="EkkiVegan" class="inline-block selection unselected flex-1 h-48">
+								<label for="EkkiVegan" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-steak fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Er ekki vegan</h4>
 								</label>
@@ -99,10 +99,10 @@
 
 				<div class="w-full mt-12 px-6 md:px-0">
 					<div class="flex justify-between">
-						<button class="border-primary-gray hover:bg-primary-gray hover:text-gray-text transition" @click="stepCount--">
+						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
 							<div class="flex w-auto">
-								<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
 								<span>
+									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
 									Til baka
 								</span>
 							</div>
@@ -111,8 +111,8 @@
 							<div class="flex w-auto">
 								<span>
 									Áfram
+									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
 								</span>
-								<i class="fad fa-long-arrow-alt-right pl-6 self-center"></i>
 							</div>
 						</button>
 					</div>
@@ -132,7 +132,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Evrópa" value="Evrópa" class="opacity-0 fixed w-0" v-model="continentsPicked">
-								<label for="Evrópa" class="inline-block selection unselected flex-1 h-48">
+								<label for="Evrópa" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-globe-europe fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Evrópa</h4>
 								</label>
@@ -142,7 +142,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Asía" value="Asía" class="opacity-0 fixed w-0" v-model="continentsPicked">
-								<label for="Asía" class="inline-block selection unselected flex-1 h-48">
+								<label for="Asía" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-globe-asia fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Asía</h4>
 								</label>
@@ -152,7 +152,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Suður-Ameríka" value="Suður-Ameríka" class="opacity-0 fixed w-0" v-model="continentsPicked">
-								<label for="Suður-Ameríka" class="inline-block selection unselected flex-1 h-48">
+								<label for="Suður-Ameríka" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-globe-americas fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Suður-Ameríka</h4>
 								</label>
@@ -162,7 +162,7 @@
 						<!-- <div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Afríka" value="Afríka" class="opacity-0 fixed w-0" v-model="continentsPicked">
-								<label for="Afríka" class="inline-block selection unselected flex-1 h-48">
+								<label for="Afríka" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-globe-africa fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Afríka</h4>
 								</label>
@@ -173,10 +173,10 @@
 
 				<div class="w-full mt-12 px-6 md:px-0">
 					<div class="flex justify-between">
-						<button class="border-primary-gray hover:bg-primary-gray hover:text-gray-text transition" @click="stepCount--">
+						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition" @click="stepCount--">
 							<div class="flex w-auto">
-								<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
 								<span>
+									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
 									Til baka
 								</span>
 							</div>
@@ -185,8 +185,8 @@
 							<div class="flex w-auto">
 								<span>
 									Áfram
+									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
 								</span>
-								<i class="fad fa-long-arrow-alt-right pl-6 self-center"></i>
 							</div>
 						</button>
 					</div>
@@ -206,7 +206,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0" v-if="veganPicked !== 'Vegan'">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Fisk" value="Fisk" class="opacity-0 fixed w-0" v-model="foodPicked">
-								<label for="Fisk" class="inline-block selection unselected flex-1 h-48">
+								<label for="Fisk" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-fish fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Fisk</h4>
 								</label>
@@ -216,7 +216,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Kjöt" value="Kjöt" class="opacity-0 fixed w-0" v-model="foodPicked">
-								<label for="Kjöt" class="inline-block selection unselected flex-1 h-48">
+								<label for="Kjöt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-steak fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Kjöt</h4>
 								</label>
@@ -226,7 +226,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Kjúkling" value="Kjúkling" class="opacity-0 fixed w-0" v-model="foodPicked">
-								<label for="Kjúkling" class="inline-block selection unselected flex-1 h-48">
+								<label for="Kjúkling" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-drumstick fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Kjúkling</h4>
 								</label>
@@ -236,7 +236,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Súpu" value="Súpu" class="opacity-0 fixed w-0" v-model="foodPicked">
-								<label for="Súpu" class="inline-block selection unselected flex-1 h-48">
+								<label for="Súpu" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-soup fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Súpu</h4>
 								</label>
@@ -246,7 +246,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Annað" value="Annað" class="opacity-0 fixed w-0" v-model="foodPicked">
-								<label for="Annað" class="inline-block selection unselected flex-1 h-48">
+								<label for="Annað" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-salad fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Annað</h4>
 								</label>
@@ -257,10 +257,10 @@
 
 				<div class="w-full mt-12 px-6 md:px-0">
 					<div class="flex justify-between">
-						<button class="border-primary-gray hover:bg-primary-gray hover:text-gray-text transition" @click="stepCount--">
+						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition" @click="stepCount--">
 							<div class="flex w-auto">
-								<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
 								<span>
+									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
 									Til baka
 								</span>
 							</div>
@@ -269,8 +269,8 @@
 							<div class="flex w-auto">
 								<span>
 									Áfram
+									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
 								</span>
-								<i class="fad fa-long-arrow-alt-right pl-6 self-center"></i>
 							</div>
 						</button>
 					</div>
@@ -290,7 +290,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Sterkt" value="1" class="opacity-0 fixed w-0" v-model="spicyPicked">
-								<label for="Sterkt" class="inline-block selection unselected flex-1 h-48">
+								<label for="Sterkt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-pepper-hot fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Sterkt</h4>
 								</label>
@@ -300,7 +300,7 @@
 						<div class="flex-1 h-auto mb-8 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="EkkiSterkt" value="0" class="opacity-0 fixed w-0" v-model="spicyPicked">
-								<label for="EkkiSterkt" class="inline-block selection unselected flex-1 h-48">
+								<label for="EkkiSterkt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-leaf fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Ekki Sterkt</h4>
 								</label>
@@ -311,10 +311,10 @@
 
 				<div class="w-full mt-12 px-6 md:px-0">
 					<div class="flex justify-between">
-						<button class="border-primary-gray hover:bg-primary-gray hover:text-gray-text transition" @click="stepCount--">
+						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition" @click="stepCount--">
 							<div class="flex w-auto">
-								<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
 								<span>
+									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
 									Til baka
 								</span>
 							</div>
@@ -323,8 +323,8 @@
 							<div class="flex w-auto">
 								<span>
 									Áfram
+									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
 								</span>
-								<i class="fad fa-long-arrow-alt-right pl-6 self-center"></i>
 							</div>
 						</button>
 					</div>
@@ -343,31 +343,31 @@
 					<table class="text-left w-full border-collapse">
 						<thead>
 							<tr class="flex">
-								<th class="w-6/12 py-4 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Spurning</th>
-								<th class="flex-1 py-4 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Þú valdir</th>
+								<th class="w-6/12 py-2 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-primary-gray">Spurning</th>
+								<th class="flex-1 py-2 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-primary-gray">Þú valdir</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr class="flex">
-								<td class="w-6/12 py-4 border-b border-grey-light">Eftir hverju ertu að leita?</td>
-								<td class="flex-1 py-4 border-b border-grey-light"><span v-text="mealsPicked"></span></td>
+								<td class="w-6/12 py-4 border-b border-primary-gray"><a @click="stepCount = 1" class="hover:text-primary transition cursor-pointer">Eftir hverju ertu að leita?</a></td>
+								<td class="flex-1 py-4 border-b border-primary-gray"><span v-text="mealsPicked"></span></td>
 							</tr>
 							<tr class="flex">
-								<td class="w-6/12 py-4 border-b border-grey-light">Ertu vegan?</td>
-								<td class="flex-1 py-4 border-b border-grey-light"><span v-text="veganPicked"></span></td>
+								<td class="w-6/12 py-4 border-b border-primary-gray"><a @click="stepCount = 2" class="hover:text-primary transition cursor-pointer">Ertu vegan?</a></td>
+								<td class="flex-1 py-4 border-b border-primary-gray"><span v-text="veganPicked"></span></td>
 							</tr>
 							<tr class="flex">
-								<td class="w-6/12 py-4 border-b border-grey-light">Frá hvaða landi viltu hafa matinn þinn?</td>
-								<td class="flex-1 py-4 border-b border-grey-light"><span v-text="continentsPicked"></span></td>
+								<td class="w-6/12 py-4 border-b border-primary-gray"><a @click="stepCount = 3" class="hover:text-primary transition cursor-pointer">Frá hvaða landi viltu hafa matinn þinn?</a></td>
+								<td class="flex-1 py-4 border-b border-primary-gray"><span v-text="continentsPicked"></span></td>
 							</tr>
 							<tr class="flex">
-								<td class="w-6/12 py-4 border-b border-grey-light">Í hverju ertu í stuði fyrir?</td>
-								<td class="flex-1 py-4 border-b border-grey-light"><span v-text="foodPicked"></span></td>
+								<td class="w-6/12 py-4 border-b border-primary-gray"><a @click="stepCount = 4" class="hover:text-primary transition cursor-pointer">Í hverju ertu í stuði fyrir?</a></td>
+								<td class="flex-1 py-4 border-b border-primary-gray"><span v-text="foodPicked"></span></td>
 							</tr>
 							<tr class="flex">
-								<td class="w-6/12 py-4 border-b border-grey-light">Viltu sterkan mat eða ekki?</td>
-								<td class="flex-1 py-4 border-b border-grey-light" v-if="spicyPicked === '1'">Já</td>
-								<td class="flex-1 py-4 border-b border-grey-light" v-else>Nei</td>
+								<td class="w-6/12 py-4 border-b border-primary-gray"><a @click="stepCount = 5" class="hover:text-primary transition cursor-pointer">Viltu sterkan mat eða ekki?</a></td>
+								<td class="flex-1 py-4 border-b border-primary-gray" v-if="spicyPicked === '1'">Já</td>
+								<td class="flex-1 py-4 border-b border-primary-gray" v-else>Nei</td>
 							</tr>
 						</tbody>
 					</table>
@@ -375,10 +375,10 @@
 
 				<div class="w-full mt-12 px-6 md:px-0">
 					<div class="flex justify-between">
-						<button class="border-primary-gray hover:bg-primary-gray hover:text-gray-text transition" @click="stepCount--">
+						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition" @click="stepCount--">
 							<div class="flex w-auto">
-								<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
 								<span>
+									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
 									Til baka
 								</span>
 							</div>
@@ -387,8 +387,8 @@
 							<div class="flex w-auto">
 								<span>
 									Áfram
+									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
 								</span>
-								<i class="fad fa-long-arrow-alt-right pl-6 self-center"></i>
 							</div>
 						</button>
 					</div>
@@ -399,37 +399,103 @@
 		<div class="w-full h-auto" v-if="stepCount === 7">
 			<div class="flex flex-col">
 				<div class="w-full mb-12 px-6 md:px-0">
-					<h2 class="font-medium text-4xl">Hér er einhvað handa þér</h2>
-				</div>
-
-				<div class="w-full px-6 md:px-0">
-					<div v-for="first in recipes">
-						<div v-for="recipe in first">
-							<p class="text-2xl mb-3"><strong>{{ recipe.title }}</strong></p>
-							<p>{{ recipe.paragraph }}</p>
-						</div>  
+					<div class="flex">
+						<div class="flex-1">
+							<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition" @click="stepCount--">
+								<div class="flex w-auto">
+									<span>
+										<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
+										Til baka
+									</span>
+								</div>
+							</button>
+						</div>
+						<div class="flex-1 self-center">
+							<a class="self-center text-sm text-primary-gray hover:text-primary transition cursor-pointer flex float-right">
+								Sækja nýja uppskrift
+								<i class="fas fa-sync-alt pl-2 self-center"></i>
+							</a>
+						</div>
 					</div>
 				</div>
+			</div>
 
-				<div class="w-full mt-12 px-6 md:px-0">
-					<div class="flex justify-between">
-						<button class="border-primary-gray hover:bg-primary-gray hover:text-gray-text transition" @click="stepCount--">
-							<div class="flex w-auto">
-								<i class="fad fa-long-arrow-alt-left pr-6 self-center"></i>
-								<span>
-									Til baka
-								</span>
+			<div class="w-full px-6 md:px-0">
+				<div v-for="recipe in recipes">
+					<div class="flex">
+						<div class="w-1/2 z-10 self-center">
+							<img src="/images/duck.jpg" width="100%">
+						</div>
+						<div class="w-2/3 z-20 p-6 bg-white shadow-lg">
+							<h2 class="font-medium text-2xl leading-tight">{{ recipe.title }}</h2>
+							<p class="text-sm my-4">{{ recipe.paragraph }}</p>
+
+							<div class="flex">
+								<div class="w-1/3">
+									<table class="text-left w-full border-collapse">
+										<tbody>
+											<tr class="flex">
+												<td class="py-2 border-b border-primary-gray w-full">
+													<p class="text-sm">2 andabringur</p>
+												</td>
+											</tr>
+											<tr class="flex">
+												<td class="py-2 border-b border-primary-gray w-full">
+													<p class="text-sm">1kg kálhaus</p>
+												</td>
+											</tr>
+											<tr class="flex">
+												<td class="py-2 border-b border-primary-gray w-full">
+													<p class="text-sm">500gr agúrka</p>
+												</td>
+											</tr>
+											<tr class="flex">
+												<td class="py-2 border-b border-primary-gray w-full">
+													<p class="text-sm">250gr gulrætur</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="flex-1 px-3">
+									<p class="text-sm mb-2">
+										<strong>1.</strong>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua.
+									</p>
+
+									<p class="text-sm mb-2">
+										<strong>2.</strong> 
+										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat.
+									</p>
+
+									<p class="text-sm mb-2">
+										<strong>3.</strong> 
+										Duis aute irure dolor in reprehenderit in voluptate velit esse
+										cillum dolore eu fugiat nulla pariatur.
+									</p>
+
+									<p class="text-sm mb-2">
+										<strong>4.</strong> 
+										Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
+										officia deserunt mollit anim id est laborum.
+									</p>
+								</div>	
 							</div>
-						</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </template>
 
 <script>
 export default {
+	props: ['mode'],
+
 	data() {
 		return {
 			stepCount: 1,
@@ -445,30 +511,23 @@ export default {
 	},
 
 	methods: {
-		submitForm: function () {
-			let self = this;
-
-			if (self.executed === true) {
-
-			} else {
-				self.executed = true;
-
-				axios.get('/uppskriftir/sækja', {
-					params: {
-						maltid: this.mealsPicked,
-						vegan: this.veganPicked,
-						heimsalfa: this.continentsPicked,
-						kjot: this.foodPicked,
-						spicy: this.spicyPicked
-					}
-				})
-				.then(function (response) {
-					self.recipes.push(response.data);
-				})
-				.catch(function (error) {
-					console.log(error);
-				});
-			}
+		submitForm () {
+			axios.get('/uppskriftir/sækja', {
+				params: {
+					maltid: this.mealsPicked,
+					vegan: this.veganPicked,
+					heimsalfa: this.continentsPicked,
+					kjot: this.foodPicked,
+					spicy: this.spicyPicked
+				}
+			})
+			.then(response => {
+				this.recipes = response.data.recipes;
+				this.stepCount++;
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 		}
 	}
 };
@@ -479,20 +538,6 @@ export default {
 	background: transparent;
 	color: #9E9E9E;
 	border-color: #9E9E9E
-}
-
-input[type="radio"] + label {
-	border: 3px solid grey;
-	background: transparent;
-	padding-right: 1rem;
-	padding-left: 1rem;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-	margin: 0.5rem;
-	text-align: center;
-	transition: all .15s ease-out;
-	border-color: #9E9E9E;
-	color: #9E9E9E;
 }
 
 input[type="radio"] + label:hover {

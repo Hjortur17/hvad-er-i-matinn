@@ -2,7 +2,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.component('survey', require('./components/SurveyComponent.vue').default);
+Vue.component('homepage', require('./components/HomepageComponent.vue').default);
 
 const app = new Vue({
     el: '#app',

@@ -5,8 +5,11 @@ module.exports = {
     		'primary': '#E67635',
     		'primary-hover': '#EF8E58',
     		'primary-gray': '#9E9E9E',
-    		'gray-text': '#F7F7F7'
-	}
+        'primary-gray-light': '#F7F7F7',
+        'dark-primary': '#D65A31',
+        'dark-gray': '#222831',
+        'secondary-dark-gray': '#393E46'
+      }
     }
   },
   variants: {},
