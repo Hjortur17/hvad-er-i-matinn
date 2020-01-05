@@ -1,5 +1,5 @@
 <template>
-	<div class="flex items-center h-auto md:h-screen py-20 md:py-0">
+	<div>
 		<div class="w-full h-auto" v-if="stepCount === 1">
 			<div class="flex flex-col">
 				<div class="w-full mb-12 px-6 md:px-0">
@@ -173,7 +173,7 @@
 
 				<div class="w-full mt-12 px-6 md:px-0">
 					<div class="flex justify-between">
-						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition" @click="stepCount--">
+						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
 							<div class="flex w-auto">
 								<span>
 									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
@@ -257,7 +257,7 @@
 
 				<div class="w-full mt-12 px-6 md:px-0">
 					<div class="flex justify-between">
-						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition" @click="stepCount--">
+						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
 							<div class="flex w-auto">
 								<span>
 									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
@@ -311,7 +311,7 @@
 
 				<div class="w-full mt-12 px-6 md:px-0">
 					<div class="flex justify-between">
-						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition" @click="stepCount--">
+						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
 							<div class="flex w-auto">
 								<span>
 									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
@@ -375,7 +375,7 @@
 
 				<div class="w-full mt-12 px-6 md:px-0">
 					<div class="flex justify-between">
-						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition" @click="stepCount--">
+						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
 							<div class="flex w-auto">
 								<span>
 									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
@@ -401,7 +401,7 @@
 				<div class="w-full mb-12 px-6 md:px-0">
 					<div class="flex">
 						<div class="flex-1">
-							<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-transparent transition" @click="stepCount--">
+							<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
 								<div class="flex w-auto">
 									<span>
 										<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
@@ -410,8 +410,8 @@
 								</div>
 							</button>
 						</div>
-						<div class="flex-1 self-center">
-							<a class="self-center text-sm text-primary-gray hover:text-primary transition cursor-pointer flex float-right">
+						<div class="flex-1 self-center" v-if="recipes.length > 1">
+							<a class="self-center text-sm text-primary-gray hover:text-primary transition cursor-pointer flex float-right" @click="checkingIfArrayLengthIsShorterThenIndexForLoop">
 								Sækja nýja uppskrift
 								<i class="fas fa-sync-alt pl-2 self-center"></i>
 							</a>
@@ -421,66 +421,117 @@
 			</div>
 
 			<div class="w-full px-6 md:px-0">
-				<div v-for="recipe in recipes">
+				<div v-if="!recipes.length">
+					Engar uppskriftir fundust
+				</div>
+				<div v-else>
 					<div class="flex">
-						<div class="w-1/2 z-10 self-center">
+						<div class="w-9/12 z-10 self-center">
 							<img src="/images/duck.jpg" width="100%">
 						</div>
-						<div class="w-2/3 z-20 p-6 bg-white shadow-lg">
-							<h2 class="font-medium text-2xl leading-tight">{{ recipe.title }}</h2>
-							<p class="text-sm my-4">{{ recipe.paragraph }}</p>
+						<div class="w-full z-20 p-6 bg-white shadow-lg">
+							<h2 class="font-medium text-2xl leading-tight" v-text="recipes[indexLoop].title"></h2>
+							<p class="text-sm my-4" v-text="recipes[indexLoop].paragraph"></p>
 
 							<div class="flex">
 								<div class="w-1/3">
-									<table class="text-left w-full border-collapse">
+									<table class="text-left w-full border-collapse -my-2">
 										<tbody>
 											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full">
-													<p class="text-sm">2 andabringur</p>
+												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient1 ? 'invisible' : ''">
+													<p class="text-sm" v-text="recipes[indexLoop].ingredient1"></p>
 												</td>
 											</tr>
+
 											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full">
-													<p class="text-sm">1kg kálhaus</p>
+												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient2 ? 'invisible' : ''">
+													<p class="text-sm" v-text="recipes[indexLoop].ingredient2"></p>
 												</td>
 											</tr>
+
 											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full">
-													<p class="text-sm">500gr agúrka</p>
+												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient3 ? 'invisible' : ''">
+													<p class="text-sm" v-text="recipes[indexLoop].ingredient3"></p>
 												</td>
 											</tr>
+
 											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full">
-													<p class="text-sm">250gr gulrætur</p>
+												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient4 ? 'invisible' : ''">
+													<p class="text-sm" v-text="recipes[indexLoop].ingredient4"></p>
+												</td>
+											</tr>
+
+											<tr class="flex">
+												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient5 ? 'invisible' : ''">
+													<p class="text-sm" v-text="recipes[indexLoop].ingredient5"></p>
+												</td>
+											</tr>
+
+											<tr class="flex">
+												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient6 ? 'invisible' : ''">
+													<p class="text-sm" v-text="recipes[indexLoop].ingredient6"></p>
+												</td>
+											</tr>
+
+											<tr class="flex">
+												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient7 ? 'invisible' : ''">
+													<p class="text-sm" v-text="recipes[indexLoop].ingredient7"></p>
+												</td>
+											</tr>
+
+											<tr class="flex">
+												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient8 ? 'invisible' : ''">
+													<p class="text-sm" v-text="recipes[indexLoop].ingredient8"></p>
+												</td>
+											</tr>
+
+											<tr class="flex">
+												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient9 ? 'invisible' : ''">
+													<p class="text-sm" v-text="recipes[indexLoop].ingredient9"></p>
+												</td>
+											</tr>
+
+											<tr class="flex">
+												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient10 ? 'invisible' : ''">
+													<p class="text-sm" v-text="recipes[indexLoop].ingredient10"></p>
 												</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
 								<div class="flex-1 px-3">
-									<p class="text-sm mb-2">
-										<strong>1.</strong>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-										tempor incididunt ut labore et dolore magna aliqua.
-									</p>
-
-									<p class="text-sm mb-2">
-										<strong>2.</strong> 
-										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-										consequat.
-									</p>
-
-									<p class="text-sm mb-2">
-										<strong>3.</strong> 
-										Duis aute irure dolor in reprehenderit in voluptate velit esse
-										cillum dolore eu fugiat nulla pariatur.
-									</p>
-
-									<p class="text-sm mb-2">
-										<strong>4.</strong> 
-										Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-										officia deserunt mollit anim id est laborum.
-									</p>
+									<ul>
+										<li class="mb-4">
+											<p class="text-sm" v-text="recipes[indexLoop].instructions1"></p>
+										</li>
+										<li class="mb-4">
+											<p class="text-sm" v-text="recipes[indexLoop].instructions2"></p>
+										</li>
+										<li class="mb-4">
+											<p class="text-sm" v-text="recipes[indexLoop].instructions3"></p>
+										</li>
+										<li class="mb-4">
+											<p class="text-sm" v-text="recipes[indexLoop].instructions4"></p>
+										</li>
+										<li class="mb-4">
+											<p class="text-sm" v-text="recipes[indexLoop].instructions5"></p>
+										</li>
+										<li class="mb-4">
+											<p class="text-sm" v-text="recipes[indexLoop].instructions6"></p>
+										</li>
+										<li class="mb-4">
+											<p class="text-sm" v-text="recipes[indexLoop].instructions7"></p>
+										</li>
+										<li class="mb-4">
+											<p class="text-sm" v-text="recipes[indexLoop].instructions8"></p>
+										</li>
+										<li class="mb-4">
+											<p class="text-sm" v-text="recipes[indexLoop].instructions9"></p>
+										</li>
+										<li class="mb-4">
+											<p class="text-sm" v-text="recipes[indexLoop].instructions10"></p>
+										</li>
+									</ul>
 								</div>	
 							</div>
 						</div>
@@ -506,7 +557,8 @@ export default {
 			foodPicked: '',
 			spicyPicked: '',
 			executed: false,
-			recipes: []
+			recipes: '',
+			indexLoop: 0
 		}
 	},
 
@@ -523,12 +575,22 @@ export default {
 			})
 			.then(response => {
 				this.recipes = response.data.recipes;
-				this.stepCount++;
 			})
 			.catch(function (error) {
 				console.log(error);
 			});
+		},
+
+		checkingIfArrayLengthIsShorterThenIndexForLoop() {
+			if ((this.recipes.length-1) <= this.indexLoop) {
+				return this.indexLoop = 0;
+			} else {
+				this.indexLoop++;
+			}
 		}
+	},
+
+	computed: {
 	}
 };
 </script>

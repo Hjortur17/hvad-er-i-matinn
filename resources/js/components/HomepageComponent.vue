@@ -1,12 +1,18 @@
 <template>
 	<div :class="mode">
-		<div class="container max-w-4xl mx-auto">
-			<navbar :mode="mode" @toggle="toggleDarkMode"></navbar>
+		<div class="container max-w-5xl mx-auto">
+			<div class="flex content-around flex-wrap h-screen">
+				<div class="w-full">
+					<navbar :mode="mode" @toggle="toggleDarkMode"></navbar>
+				</div>
 
-			<survey :mode="mode"></survey>
+				<div class="w-full">
+					<survey :mode="mode"></survey>
+				</div>
 
-			<div class="fixed bottom-0 left-0 pl-20 pb-10 text-center">
-				<small class="text-primary-gray">Þessi síða var gerð af <a href="https://hjorturfreyr.com" class="hover:text-primary transition" target="_blank" rel="noopener">Hirti Frey</a></small>
+				<div class="w-full text-left">
+					<small class="text-primary-gray">Þessi síða var gerð af <a href="https://hjorturfreyr.com" class="hover:text-primary transition" target="_blank" rel="noopener">Hirti Frey</a></small>
+				</div>
 			</div>
 		</div>
 	</div>
