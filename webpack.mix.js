@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -20,4 +21,7 @@ mix
 	})
 	.browserSync({
 		proxy: 'food.test',
+	})
+	.purgeCss({
+		enabled: true
 	});

@@ -77,10 +77,10 @@
 
 						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
-								<input type="radio" id="VeganEnBorðaFisk" value="Vegan en borða fisk" class="opacity-0 fixed w-0" v-model="veganPicked">
-								<label for="VeganEnBorðaFisk" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
+								<input type="radio" id="Pesceterian" value="Pesceterian" class="opacity-0 fixed w-0" v-model="veganPicked">
+								<label for="Pesceterian" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-fish fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Vegan en borða fisk</h4>
+									<h4 class="font-bold uppercase pt-4">Pesceterian</h4>
 								</label>
 							</div>
 						</div>
@@ -203,7 +203,7 @@
 
 				<div class="w-full px-6 md:px-0">
 					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked !== 'Vegan'">
+						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked === 'Pesceterian'">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Fisk" value="Fisk" class="opacity-0 fixed w-0" v-model="foodPicked">
 								<label for="Fisk" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
