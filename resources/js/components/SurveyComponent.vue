@@ -9,7 +9,7 @@
 
 				<div class="w-full px-6 md:px-0">
 					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Hádeigismat" value="Hádeigismat" class="opacity-0 fixed w-0" v-model="mealsPicked">
 								<label for="Hádeigismat" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -19,7 +19,7 @@
 							</div>
 						</div>
 
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Kvöldmat" value="Kvöldmat" class="opacity-0 fixed w-0" v-model="mealsPicked">
 								<label for="Kvöldmat" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -29,7 +29,7 @@
 							</div>
 						</div>
 
-						<!-- <div class="flex-1 h-auto mb-8 md:mb-0">
+						<!-- <div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Eftirrétt" value="Eftirrétt" class="opacity-0 fixed w-0" v-model="mealsPicked">
 								<label for="Eftirrétt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -41,7 +41,7 @@
 					</div>
 				</div>
 
-				<div class="w-full mt-12 px-6 md:px-0">
+				<div class="w-full mt-6 md:mt-12 px-6 md:px-0">
 					<div class="flex justify-end">
 						<button class="next-button bg-primary border-primary hover:bg-primary-hover hover:border-primary-hover text-white transition" @click="stepCount++" :disabled="!mealsPicked">
 							<div class="flex w-auto">
@@ -65,7 +65,7 @@
 
 				<div class="w-full px-6 md:px-0">
 					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Vegan" value="Vegan" class="opacity-0 fixed w-0" v-model="veganPicked">
 								<label for="Vegan" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -75,7 +75,7 @@
 							</div>
 						</div>
 
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="VeganEnBorðaFisk" value="Vegan en borða fisk" class="opacity-0 fixed w-0" v-model="veganPicked">
 								<label for="VeganEnBorðaFisk" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -85,7 +85,7 @@
 							</div>
 						</div>
 
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="EkkiVegan" value="Ekki vegan" class="opacity-0 fixed w-0" v-model="veganPicked">
 								<label for="EkkiVegan" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -129,7 +129,7 @@
 
 				<div class="w-full px-6 md:px-0">
 					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Evrópa" value="Evrópa" class="opacity-0 fixed w-0" v-model="continentsPicked">
 								<label for="Evrópa" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -139,7 +139,7 @@
 							</div>
 						</div>
 
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Asía" value="Asía" class="opacity-0 fixed w-0" v-model="continentsPicked">
 								<label for="Asía" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -149,7 +149,7 @@
 							</div>
 						</div>
 
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Suður-Ameríka" value="Suður-Ameríka" class="opacity-0 fixed w-0" v-model="continentsPicked">
 								<label for="Suður-Ameríka" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -159,7 +159,7 @@
 							</div>
 						</div>
 
-						<!-- <div class="flex-1 h-auto mb-8 md:mb-0">
+						<!-- <div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Afríka" value="Afríka" class="opacity-0 fixed w-0" v-model="continentsPicked">
 								<label for="Afríka" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -203,7 +203,7 @@
 
 				<div class="w-full px-6 md:px-0">
 					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-8 md:mb-0" v-if="veganPicked !== 'Vegan'">
+						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked !== 'Vegan'">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Fisk" value="Fisk" class="opacity-0 fixed w-0" v-model="foodPicked">
 								<label for="Fisk" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -213,7 +213,7 @@
 							</div>
 						</div>
 
-						<div class="flex-1 h-auto mb-8 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
+						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Kjöt" value="Kjöt" class="opacity-0 fixed w-0" v-model="foodPicked">
 								<label for="Kjöt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -223,7 +223,7 @@
 							</div>
 						</div>
 
-						<div class="flex-1 h-auto mb-8 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
+						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Kjúkling" value="Kjúkling" class="opacity-0 fixed w-0" v-model="foodPicked">
 								<label for="Kjúkling" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -233,7 +233,7 @@
 							</div>
 						</div>
 
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Súpu" value="Súpu" class="opacity-0 fixed w-0" v-model="foodPicked">
 								<label for="Súpu" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -243,7 +243,7 @@
 							</div>
 						</div>
 
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Annað" value="Annað" class="opacity-0 fixed w-0" v-model="foodPicked">
 								<label for="Annað" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -287,7 +287,7 @@
 
 				<div class="w-full px-6 md:px-0">
 					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Sterkt" value="1" class="opacity-0 fixed w-0" v-model="spicyPicked">
 								<label for="Sterkt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
@@ -297,7 +297,7 @@
 							</div>
 						</div>
 
-						<div class="flex-1 h-auto mb-8 md:mb-0">
+						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="EkkiSterkt" value="0" class="opacity-0 fixed w-0" v-model="spicyPicked">
 								<label for="EkkiSterkt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
