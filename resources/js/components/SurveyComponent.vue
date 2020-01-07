@@ -430,10 +430,10 @@
 							<img :src="'/images/' + recipes[indexLoop].link_to_image" width="100%">
 						</div>
 						<div class="w-full z-0 md:z-20 p-6 bg-white shadow-lg">
-							<h2 class="font-medium text-2xl leading-tight" v-text="recipes[indexLoop].title"></h2>
+							<h2 class="font-medium text-2xl leading-tight mb-8" v-text="recipes[indexLoop].title"></h2>
 							<p class="text-sm my-4" v-text="recipes[indexLoop].paragraph"></p>
 
-							<div class="flex flex-col md:flex-row mt-8 md:mt-0">
+							<div class="flex flex-col md:flex-row">
 								<div class="w-full md:w-1/3">
 									<table class="text-left w-full border-collapse -my-2">
 										<tbody>
@@ -500,7 +500,7 @@
 									</table>
 								</div>
 								<div class="w-full md:flex-1 px-0 md:px-3">
-									<h4 class="uppercase text-sm font-bold mt-8 md:mt-0">Aðferð</h4>
+									<h4 class="uppercase text-sm font-bold mt-8 md:mt-0 visible md:invisible">Aðferð</h4>
 									<ul>
 										<li class="mb-4">
 											<p class="text-sm" v-text="recipes[indexLoop].instructions1"></p>
