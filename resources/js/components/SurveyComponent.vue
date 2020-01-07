@@ -427,7 +427,7 @@
 				<div v-else>
 					<div class="flex">
 						<div class="w-9/12 z-10 self-center">
-							<img src="/images/duck.jpg" width="100%">
+							<img :src="'/images/' + recipes[indexLoop].link_to_image" width="100%">
 						</div>
 						<div class="w-full z-20 p-6 bg-white shadow-lg">
 							<h2 class="font-medium text-2xl leading-tight" v-text="recipes[indexLoop].title"></h2>

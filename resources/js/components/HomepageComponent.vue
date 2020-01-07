@@ -10,8 +10,11 @@
 					<survey :mode="mode"></survey>
 				</div>
 
-				<div class="w-full text-left px-6 md:px-0 pt-12 pb-6">
-					<small class="text-primary-gray">Þessi síða var gerð af <a href="https://hjorturfreyr.com" class="hover:text-primary transition" target="_blank" rel="noopener">Hirti Frey</a></small>
+				<div class="w-full px-6 md:px-0 pt-12 pb-6">
+					<div class="flex flex-col md:flex-row justify-start md:justify-between">
+						<small class="text-primary-gray">Þessi síða var gerð af <a href="https://hjorturfreyr.com" class="hover:text-primary transition" target="_blank" rel="noopener">Hirti Frey</a></small>
+						<small class="text-primary-gray pt-4 md:pt-0">Ertu með einhvað sem þú vilt koma á framfarir, smelltu  <a href="mailto:hjorturfreyr@hjorturfreyr.com" class="hover:text-primary transition">hér</a></small>
+					</div>
 				</div>
 			</div>
 		</div>
