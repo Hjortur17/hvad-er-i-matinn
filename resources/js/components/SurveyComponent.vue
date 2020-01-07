@@ -203,7 +203,7 @@
 
 				<div class="w-full px-6 md:px-0">
 					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked === 'Pesceterian'">
+						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked !== 'Vegan'">
 							<div class="flex h-48 items-center">
 								<input type="radio" id="Fisk" value="Fisk" class="opacity-0 fixed w-0" v-model="foodPicked">
 								<label for="Fisk" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
