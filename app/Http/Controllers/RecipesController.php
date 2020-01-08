@@ -16,13 +16,16 @@ class RecipesController extends Controller
 	
 	public function show(Request $request)
 	{
-		$recipes = Recipes::where([
+		$recipes = Recipes::with(['instructions', 'ingredients'])->where([
 			['maltid', $request->maltid],
 			['vegan', $request->vegan],
 			['heimsalfa', $request->heimsalfa],
 			['kjot', $request->kjot],
 			['spicy', $request->spicy],
 		])->get();
+
+		$recipes->first()->instructions;
+		$recipes->first()->ingredients;
 
 		return response()->json([
 			'recipes' => $recipes,

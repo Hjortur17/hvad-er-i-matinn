@@ -11,7 +11,7 @@
 					<div class="flex flex-col md:flex-row -mx-2">
 						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
-								<input type="radio" id="Hádeigismat" value="Hádeigismat" class="opacity-0 fixed w-0" v-model="mealsPicked">
+								<input type="radio" id="Hádeigismat" value="Hádeigi" class="opacity-0 fixed w-0" v-model="mealsPicked">
 								<label for="Hádeigismat" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-bacon fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Hádeigismat</h4>
@@ -21,7 +21,7 @@
 
 						<div class="flex-1 h-auto">
 							<div class="flex h-48 items-center">
-								<input type="radio" id="Kvöldmat" value="Kvöldmat" class="opacity-0 fixed w-0" v-model="mealsPicked">
+								<input type="radio" id="Kvöldmat" value="Kvöld" class="opacity-0 fixed w-0" v-model="mealsPicked">
 								<label for="Kvöldmat" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-pizza fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Kvöldmat</h4>
@@ -205,7 +205,7 @@
 					<div class="flex flex-col md:flex-row -mx-2">
 						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked !== 'Vegan'">
 							<div class="flex h-48 items-center">
-								<input type="radio" id="Fisk" value="Fisk" class="opacity-0 fixed w-0" v-model="foodPicked">
+								<input type="radio" id="Fisk" value="Fiskur" class="opacity-0 fixed w-0" v-model="foodPicked">
 								<label for="Fisk" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-fish fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Fisk</h4>
@@ -225,7 +225,7 @@
 
 						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
 							<div class="flex h-48 items-center">
-								<input type="radio" id="Kjúkling" value="Kjúkling" class="opacity-0 fixed w-0" v-model="foodPicked">
+								<input type="radio" id="Kjúkling" value="Kjúklingur" class="opacity-0 fixed w-0" v-model="foodPicked">
 								<label for="Kjúkling" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-drumstick fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Kjúkling</h4>
@@ -235,7 +235,7 @@
 
 						<div class="flex-1 h-auto mb-6 md:mb-0">
 							<div class="flex h-48 items-center">
-								<input type="radio" id="Súpu" value="Súpu" class="opacity-0 fixed w-0" v-model="foodPicked">
+								<input type="radio" id="Súpu" value="Súpa" class="opacity-0 fixed w-0" v-model="foodPicked">
 								<label for="Súpu" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
 									<i class="fad fa-soup fa-4x pt-8"></i>
 									<h4 class="font-bold uppercase pt-4">Súpu</h4>
@@ -396,148 +396,78 @@
 			</div>
 		</div>
 
-		<div class="w-full h-auto" v-if="stepCount === 7">
-			<div class="flex flex-col">
-				<div class="w-full mb-12 px-6 md:px-0">
-					<div class="flex">
-						<div class="flex-1">
-							<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
-								<div class="flex w-auto">
-									<span>
-										<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
-										Til baka
-									</span>
+
+		<div v-if="stepCount === 7">
+			<div v-if="!loading">
+				<div class="w-full h-auto">
+					<div class="flex flex-col">
+						<div class="w-full mb-12 px-6 md:px-0">
+							<div class="flex">
+								<div class="flex-1">
+									<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
+										<div class="flex w-auto">
+											<span>
+												<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
+												Til baka
+											</span>
+										</div>
+									</button>
 								</div>
-							</button>
-						</div>
-						<div class="flex-1 self-center" v-if="recipes.length > 1">
-							<a class="self-center text-sm text-primary-gray hover:text-primary transition cursor-pointer flex float-right" @click="checkingIfArrayLengthIsShorterThenIndexForLoop">
-								Sækja nýja uppskrift
-								<i class="fas fa-sync-alt pl-2 self-center"></i>
-							</a>
+								<div class="flex-1 self-center" v-if="recipes.length > 1">
+									<a class="self-center text-sm text-primary-gray hover:text-primary transition cursor-pointer flex float-right" @click="checkingIfArrayLengthIsShorterThenIndexForLoop">
+										Sækja nýja uppskrift
+										<i class="fas fa-sync-alt pl-2 self-center"></i>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
 
-			<div class="w-full px-6 md:px-0">
-				<div v-if="!recipes.length">
-					Engar uppskriftir fundust
-				</div>
-				<div v-else>
-					<div class="flex flex-col md:flex-row">
-						<div class="md:w-9/12 z-0 md:z-10 self-center">
-							<img :src="'/images/' + recipes[indexLoop].link_to_image" width="100%">
+					<div class="w-full px-6 md:px-0">
+						<div v-if="!recipes.length">
+							Engar uppskriftir fundust
 						</div>
-						<div class="w-full z-0 md:z-20 p-6 bg-white shadow-lg">
-							<h2 class="font-medium text-2xl leading-tight mb-8" v-text="recipes[indexLoop].title"></h2>
-							<p class="text-sm my-4" v-text="recipes[indexLoop].paragraph"></p>
-
+						<div v-else>
 							<div class="flex flex-col md:flex-row">
-								<div class="w-full md:w-1/3">
-									<table class="text-left w-full border-collapse -my-2">
-										<tbody>
-											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient1 ? 'invisible' : ''">
-													<p class="text-sm" v-text="recipes[indexLoop].ingredient1"></p>
-												</td>
-											</tr>
-
-											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient2 ? 'invisible' : ''">
-													<p class="text-sm" v-text="recipes[indexLoop].ingredient2"></p>
-												</td>
-											</tr>
-
-											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient3 ? 'invisible' : ''">
-													<p class="text-sm" v-text="recipes[indexLoop].ingredient3"></p>
-												</td>
-											</tr>
-
-											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient4 ? 'invisible' : ''">
-													<p class="text-sm" v-text="recipes[indexLoop].ingredient4"></p>
-												</td>
-											</tr>
-
-											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient5 ? 'invisible' : ''">
-													<p class="text-sm" v-text="recipes[indexLoop].ingredient5"></p>
-												</td>
-											</tr>
-
-											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient6 ? 'invisible' : ''">
-													<p class="text-sm" v-text="recipes[indexLoop].ingredient6"></p>
-												</td>
-											</tr>
-
-											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient7 ? 'invisible' : ''">
-													<p class="text-sm" v-text="recipes[indexLoop].ingredient7"></p>
-												</td>
-											</tr>
-
-											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient8 ? 'invisible' : ''">
-													<p class="text-sm" v-text="recipes[indexLoop].ingredient8"></p>
-												</td>
-											</tr>
-
-											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient9 ? 'invisible' : ''">
-													<p class="text-sm" v-text="recipes[indexLoop].ingredient9"></p>
-												</td>
-											</tr>
-
-											<tr class="flex">
-												<td class="py-2 border-b border-primary-gray w-full" :class="!recipes[indexLoop].ingredient10 ? 'invisible' : ''">
-													<p class="text-sm" v-text="recipes[indexLoop].ingredient10"></p>
-												</td>
-											</tr>
-										</tbody>
-									</table>
+								<div class="md:w-9/12 z-0 md:z-10 self-center">
+									<img :src="'/images/' + recipes[indexLoop].link_to_image" width="100%">
 								</div>
-								<div class="w-full md:flex-1 px-0 md:px-3">
-									<h4 class="uppercase text-sm font-bold mt-8 md:mt-0 visible md:invisible">Aðferð</h4>
-									<ul>
-										<li class="mb-4">
-											<p class="text-sm" v-text="recipes[indexLoop].instructions1"></p>
-										</li>
-										<li class="mb-4">
-											<p class="text-sm" v-text="recipes[indexLoop].instructions2"></p>
-										</li>
-										<li class="mb-4">
-											<p class="text-sm" v-text="recipes[indexLoop].instructions3"></p>
-										</li>
-										<li class="mb-4">
-											<p class="text-sm" v-text="recipes[indexLoop].instructions4"></p>
-										</li>
-										<li class="mb-4">
-											<p class="text-sm" v-text="recipes[indexLoop].instructions5"></p>
-										</li>
-										<li class="mb-4">
-											<p class="text-sm" v-text="recipes[indexLoop].instructions6"></p>
-										</li>
-										<li class="mb-4">
-											<p class="text-sm" v-text="recipes[indexLoop].instructions7"></p>
-										</li>
-										<li class="mb-4">
-											<p class="text-sm" v-text="recipes[indexLoop].instructions8"></p>
-										</li>
-										<li class="mb-4">
-											<p class="text-sm" v-text="recipes[indexLoop].instructions9"></p>
-										</li>
-										<li class="mb-4">
-											<p class="text-sm" v-text="recipes[indexLoop].instructions10"></p>
-										</li>
-									</ul>
-								</div>	
+								<div class="w-full z-0 md:z-20 p-6 bg-white shadow-lg">
+									<h2 class="font-medium text-2xl leading-tight mb-8" v-text="recipes[indexLoop].title"></h2>
+									<p class="text-sm my-4" v-text="recipes[indexLoop].paragraph"></p>
+
+									<div class="flex flex-col md:flex-row">
+										<div class="w-full md:w-1/3">
+											<table class="text-left w-full border-collapse -my-2">
+												<tbody v-for="ingredient in recipes[indexLoop].ingredients">
+													<tr class="flex" v-for="(step, index, key) in ingredient" v-if="key == index">
+														<td class="py-2 border-b border-primary-gray w-full" v-if="step"> <!-- :class="!ingredient[indexLoop].index ? 'invisible' : ''" -->
+															<p class="text-sm" v-text="step"></p>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="w-full md:flex-1 px-0 md:px-3">
+											<h4 class="uppercase text-sm font-bold mt-8 md:mt-0 visible md:invisible">Aðferð</h4>
+
+											<div v-for="instruction in recipes[indexLoop].instructions" class="-mt-0 md:-mt-6">
+												<ul>
+													<li v-for="(step, index, key) in instruction" v-if="key == index">
+														<p class="text-sm leading-relaxed mb-4">{{ step }}</p>
+													</li>
+												</ul>
+											</div>
+										</div>	
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+			<div v-else>
+				Við erum að sækja gögninn handa þér
 			</div>
 		</div>
 	</div>
@@ -559,7 +489,8 @@ export default {
 			spicyPicked: '',
 			executed: false,
 			recipes: '',
-			indexLoop: 0
+			indexLoop: 0,
+			loading: true,
 		}
 	},
 
@@ -578,8 +509,9 @@ export default {
 				this.recipes = response.data.recipes;
 			})
 			.catch(function (error) {
-				console.log(error);
-			});
+				alert(error);
+			})
+			.finally(() => this.loading = false);
 		},
 
 		checkingIfArrayLengthIsShorterThenIndexForLoop() {
@@ -589,9 +521,6 @@ export default {
 				this.indexLoop++;
 			}
 		}
-	},
-
-	computed: {
 	}
 };
 </script>
