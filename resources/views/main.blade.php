@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+
 	<title>Hvað skal hafa í matinn?</title>
 	<meta name="theme-color" content="#E67635">
 	<meta name="description" content="Veistu ekki hvað þú ætlar að hafa í matinn? Láttu okkur koma upp með uppástungu">
