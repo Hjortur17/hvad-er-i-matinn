@@ -49,6 +49,16 @@ class CreateIngredientsTable extends Migration
             $table->string('28')->nullable();
             $table->string('29')->nullable();
             $table->string('30')->nullable();
+            $table->string('31')->nullable();
+            $table->string('32')->nullable();
+            $table->string('33')->nullable();
+            $table->string('34')->nullable();
+            $table->string('35')->nullable();
+            $table->string('36')->nullable();
+            $table->string('37')->nullable();
+            $table->string('38')->nullable();
+            $table->string('39')->nullable();
+            $table->string('40')->nullable();
             $table->timestamps();
         });
     }
