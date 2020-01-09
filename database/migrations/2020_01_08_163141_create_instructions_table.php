@@ -39,7 +39,6 @@ class CreateInstructionsTable extends Migration
             $table->mediumText('18')->nullable();
             $table->mediumText('19')->nullable();
             $table->mediumText('20')->nullable();
-            $table->mediumText('20')->nullable();
             $table->mediumText('21')->nullable();
             $table->mediumText('22')->nullable();
             $table->mediumText('23')->nullable();
