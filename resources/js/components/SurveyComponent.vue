@@ -43,7 +43,7 @@
 
 				<div class="w-full mt-6 md:mt-12 px-6 md:px-0">
 					<div class="flex justify-end">
-						<button class="next-button bg-primary border-primary hover:bg-primary-hover hover:border-primary-hover text-white transition" @click="stepCount++" :disabled="!mealsPicked">
+						<button class="next-button bg-primary border-primary hover:bg-primary-hover hover:border-primary-hover text-white transition" @click="stepCount++" :disabled="!mealsPicked" :class="(mode === 'dark-mode') ? 'dark-mode-next-button' : ''">
 							<div class="flex w-auto">
 								<span>
 									Áfram
@@ -99,7 +99,7 @@
 
 				<div class="w-full mt-12 px-6 md:px-0">
 					<div class="flex justify-between">
-						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
+						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--" :class="(mode === 'dark-mode') ? 'dark-mode-prev-button' : ''">
 							<div class="flex w-auto">
 								<span>
 									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
@@ -432,7 +432,7 @@
 								<div class="md:w-9/12 z-0 md:z-10 self-center">
 									<img :src="'/images/' + recipes[indexLoop].link_to_image" width="100%">
 								</div>
-								<div class="w-full z-0 md:z-20 p-6 bg-white shadow-lg">
+								<div class="w-full z-0 md:z-20 p-6 bg-white shadow-lg" :class="(mode === 'dark-mode') ? 'bg-gray-900' : ''">
 									<h2 class="font-medium text-2xl leading-tight mb-8" v-text="recipes[indexLoop].title"></h2>
 									<p class="text-sm my-4" v-text="recipes[indexLoop].paragraph"></p>
 
@@ -508,9 +508,7 @@ export default {
 			.then(response => {
 				this.recipes = response.data.recipes;
 			})
-			.catch(function (error) {
-				alert(error);
-			})
+			.catch(function (error) {})
 			.finally(() => this.loading = false);
 		},
 
@@ -532,14 +530,26 @@ export default {
 	border-color: #9E9E9E
 }
 
-input[type="radio"] + label:hover {
+.light-mode input[type="radio"] + label:hover {
 	background: white;
 	border-color: #E67635;
 	color: #E67635;
 }
 
-input[type="radio"]:checked + label {
+.dark-mode input[type="radio"] + label:hover {
+	background: #2d3748;
+	border-color: #E67635;
+	color: #E67635;
+}
+
+.light-mode input[type="radio"]:checked + label {
 	background: white;
+	border-color: #E67635;
+	color: #E67635;
+}
+
+.dark-mode input[type="radio"]:checked + label {
+	background: #2d3748;
 	border-color: #E67635;
 	color: #E67635;
 }

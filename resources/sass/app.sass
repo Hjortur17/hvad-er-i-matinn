@@ -24,12 +24,6 @@ button
 button:focus
 	outline: 0
 
-// input[type="radio"]:checked + label
-// 	background: white
-// 	border-color: #E67635
-// 	color: #E67635
-
-
 .selection
 	border: 3px solid grey
 	background: transparent
@@ -57,9 +51,19 @@ button:focus
 	border-color: #EEEEEE
 	@apply bg-secondary-dark-gray
 
-.dark-mode-button
-	@apply bg-dark-primary
+.dark-mode-next-button
+	@apply border-dark-primary bg-dark-primary
 
-.dark-mode-active
-	color: #D65A31
-	@apply bg-white border-primary text-primary
+.dark-mode-next-button:hover
+	@apply border-primary bg-primary
+
+.dark-mode-prev-button
+	border-color: #EEEEEE
+	background: #EEEEEE
+	@apply text-dark-gray
+
+.dark-mode-prev-button:hover
+	border-color: #EEEEEE
+	background: #EEEEEE
+	@apply text-dark-gray
+
