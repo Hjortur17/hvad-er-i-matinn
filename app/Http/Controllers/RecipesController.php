@@ -17,11 +17,11 @@ class RecipesController extends Controller
 	public function show(Request $request)
 	{
 		$recipes = Recipes::with(['instructions', 'ingredients'])->where([
-			['maltid', $request->maltid],
-			['vegan', $request->vegan],
-			['heimsalfa', $request->heimsalfa],
-			['kjot', $request->kjot],
-			['spicy', $request->spicy],
+			['vegan', $request['vegan'] == 'true' ? 1 : 0],
+			['pesceterian', $request['pesceterian'] == 'true' ? 1 : 0],
+			['continents', $request->continents],
+			['food', $request->food],
+			['spicy', $request['spicy'] == 'true' ? 1 : 0],
 		])->get();
 
 		$recipes->first()->instructions;

@@ -2,68 +2,72 @@
 @tailwind components
 @tailwind utilities
 
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,900&display=swap')
 
 body
-	font-family: "Montserrat", sans-serif
-	background: #F7F7F7
-	color: #222222
+	background: #F0F4F8
+	font-family: 'Nunito', sans-serif
+	font-weight: 300
 
-::selection
-	background: #aaa
-	color: white
+h1, h2, h3, h4, h5, h6
+	font-weight: 900
 
 .transition
 	transition: all .1s ease-out
 
-button
-	color: #F7F7F7
-	@apply font-bold uppercase border-2 border-solid px-4 py-2
+input:checked + label
+	@apply border-purple-500
 
-button:focus
-	outline: 0
+input:checked + label .checkedSign
+	@apply visible
 
-.selection
-	border: 3px solid grey
-	background: transparent
-	padding-right: 1rem
-	padding-left: 1rem
-	padding-top: 0.5rem
-	padding-bottom: 0.5rem
-	margin: 0.5rem
-	text-align: center
-	transition: all .15s ease-out
-	border-color: #9E9E9E
-	color: #9E9E9E
-	cursor: pointer
+// button
+// 	color: #F7F7F7
+// 	@apply font-bold uppercase border-2 border-solid px-4 py-2
 
-.light-mode-active:checked + label
-	background: white
-	@apply border-primary text-primary
+// button:focus
+// 	outline: 0
 
-.dark-mode
-	color: #EEEEEE
-	@apply bg-dark-gray
+// .selection
+// 	border: 3px solid grey
+// 	background: transparent
+// 	padding-right: 1rem
+// 	padding-left: 1rem
+// 	padding-top: 0.5rem
+// 	padding-bottom: 0.5rem
+// 	margin: 0.5rem
+// 	text-align: center
+// 	transition: all .15s ease-out
+// 	border-color: #9E9E9E
+// 	color: #9E9E9E
+// 	cursor: pointer
 
-.dark-mode-selection
-	color: #EEEEEE
-	border-color: #EEEEEE
-	@apply bg-secondary-dark-gray
+// .light-mode-active:checked + label
+// 	background: white
+// 	@apply border-primary text-primary
 
-.dark-mode-next-button
-	@apply border-dark-primary bg-dark-primary
+// .dark-mode
+// 	color: #EEEEEE
+// 	@apply bg-dark-gray
 
-.dark-mode-next-button:hover
-	@apply border-primary bg-primary
+// .dark-mode-selection
+// 	color: #EEEEEE
+// 	border-color: #EEEEEE
+// 	@apply bg-secondary-dark-gray
 
-.dark-mode-prev-button
-	border-color: #EEEEEE
-	background: #EEEEEE
-	@apply text-dark-gray
+// .dark-mode-next-button
+// 	@apply border-dark-primary bg-dark-primary
 
-.dark-mode-prev-button:hover
-	border-color: #EEEEEE
-	background: #EEEEEE
-	@apply text-dark-gray
+// .dark-mode-next-button:hover
+// 	@apply border-primary bg-primary
+
+// .dark-mode-prev-button
+// 	border-color: #EEEEEE
+// 	background: #EEEEEE
+// 	@apply text-dark-gray
+
+// .dark-mode-prev-button:hover
+// 	border-color: #EEEEEE
+// 	background: #EEEEEE
+// 	@apply text-dark-gray
 

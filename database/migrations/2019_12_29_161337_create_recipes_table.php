@@ -13,15 +13,16 @@ class CreateRecipesTable extends Migration
      */
     public function up()
     {
-        Schema::create('recipes', function (Blueprint $table) { // breytta
+        Schema::create('recipes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('paragraph')->nullable();
-            $table->string('maltid');
-            $table->string('vegan');
-            $table->string('heimsalfa');
-            $table->string('kjot');
-            $table->boolean('spicy');
+            $table->boolean('vegan')->default(0);
+            $table->boolean('pesceterian')->default(0);
+            $table->string('continents');
+            $table->string('food');
+            $table->boolean('spicy')->default(0);
+            $table->string('credit')->nullable();
             $table->string('link_to_image')->nullable()->default('default.jpg');
             $table->timestamps();
         });

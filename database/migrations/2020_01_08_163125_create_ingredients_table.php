@@ -16,9 +16,9 @@ class CreateIngredientsTable extends Migration
         Schema::create('ingredients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('recipes_id');
-            $table->string('1-title')->nullable();
-            $table->string('2-title')->nullable();
-            $table->string('3-title')->nullable();
+            $table->string('firstTitle')->nullable();
+            $table->string('secondTitle')->nullable();
+            $table->string('thirdTitle')->nullable();
             $table->string('1')->nullable();
             $table->string('2')->nullable();
             $table->string('3')->nullable();

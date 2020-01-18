@@ -16,9 +16,9 @@ class CreateInstructionsTable extends Migration
         Schema::create('instructions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('recipes_id');
-            $table->string('1-title')->nullable();
-            $table->string('2-title')->nullable();
-            $table->string('3-title')->nullable();
+            $table->string('firstTitle')->nullable();
+            $table->string('secondTitle')->nullable();
+            $table->string('thirdTitle')->nullable();
             $table->mediumText('1')->nullable();
             $table->mediumText('2')->nullable();
             $table->mediumText('3')->nullable();

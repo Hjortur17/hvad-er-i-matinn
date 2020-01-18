@@ -1,508 +1,530 @@
 <template>
-	<div>
-		<div class="w-full h-auto" v-if="stepCount === 1">
-			<div class="flex flex-col">
-				<div class="w-full mb-12 px-6 md:px-0">
-					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
-					<h2 class="font-medium text-4xl">Eftir hverju ertu að leita?</h2>
-				</div>
-
-				<div class="w-full px-6 md:px-0">
-					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Hádeigismat" value="Hádeigi" class="opacity-0 fixed w-0" v-model="mealsPicked">
-								<label for="Hádeigismat" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-bacon fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Hádeigismat</h4>
-								</label>
-							</div>
-						</div>
-
-						<div class="flex-1 h-auto">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Kvöldmat" value="Kvöld" class="opacity-0 fixed w-0" v-model="mealsPicked">
-								<label for="Kvöldmat" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-pizza fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Kvöldmat</h4>
-								</label>
-							</div>
-						</div>
-
-						<!-- <div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Eftirrétt" value="Eftirrétt" class="opacity-0 fixed w-0" v-model="mealsPicked">
-								<label for="Eftirrétt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-birthday-cake fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Eftirrétt</h4>
-								</label>
-							</div>
-						</div> -->
-					</div>
-				</div>
-
-				<div class="w-full mt-6 md:mt-12 px-6 md:px-0">
-					<div class="flex justify-end">
-						<button class="next-button bg-primary border-primary hover:bg-primary-hover hover:border-primary-hover text-white transition" @click="stepCount++" :disabled="!mealsPicked" :class="(mode === 'dark-mode') ? 'dark-mode-next-button' : ''">
-							<div class="flex w-auto">
-								<span>
-									Áfram
-									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
-								</span>
-							</div>
-						</button>
-					</div>
+	<main class="relative">
+		<section v-if="stepCount === 1">
+			<div class="flex">
+				<div class="w-8/12">
+					<h1 class="font-bold text-6xl text-purple-600 leading-none my-4">Hvað er í matinn?</h1>
+					<h2 class="text-lg font-light text-gray-900">Einn erfiðasta spurning dagsins. Findu þinn kvöld mat hér með fá einum auðveldum spurningum</h2>
+					<button class="px-6 py-2 mt-12 rounded-full uppercase text-sm bg-teal-300 hover:shadow-md text-teal-800 font-bold transition shadow focus:outline-none" @click="stepCount++">Fá hugmyndir</button>
 				</div>
 			</div>
-		</div>
+		</section>
 
-		<div class="w-full h-auto" v-if="stepCount === 2">
-			<div class="flex flex-col">
-				<div class="w-full mb-12 px-6 md:px-0">
-					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
-					<h2 class="font-medium text-4xl">Ertu vegan?</h2>
+		<section v-if="stepCount === 2">
+			<header class="mb-12">
+				<small class="text-sm text-gray-700"><span v-text="stepCount"></span>/<span v-text="numberOfSlides"></span></small>
+				<h2 class="text-5xl text-purple-600">Ertu vegan?</h2>
+			</header>
+
+			<div class="flex -mx-2 flex-col md:flex-row">
+				<div class="flex-1 m-2">
+					<input type="radio" id="vegan" name="veganPick" :value="true" class="opacity-0 fixed w-0" v-model="veganPick">
+					<label for="vegan" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Já</h3>
+					</label>
 				</div>
-
-				<div class="w-full px-6 md:px-0">
-					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Vegan" value="Vegan" class="opacity-0 fixed w-0" v-model="veganPicked">
-								<label for="Vegan" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-leaf-heart fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Vegan</h4>
-								</label>
+				<div class="flex-1 m-2">
+					<input type="radio" id="notVegan" name="veganPick" :value="false" class="opacity-0 fixed w-0" v-model="veganPick">
+					<label for="notVegan" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</div>
-
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Pesceterian" value="Pesceterian" class="opacity-0 fixed w-0" v-model="veganPicked">
-								<label for="Pesceterian" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-fish fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Pesceterian</h4>
-								</label>
-							</div>
-						</div>
-
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="EkkiVegan" value="Ekki vegan" class="opacity-0 fixed w-0" v-model="veganPicked">
-								<label for="EkkiVegan" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-steak fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Er ekki vegan</h4>
-								</label>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="w-full mt-12 px-6 md:px-0">
-					<div class="flex justify-between">
-						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--" :class="(mode === 'dark-mode') ? 'dark-mode-prev-button' : ''">
-							<div class="flex w-auto">
-								<span>
-									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
-									Til baka
-								</span>
-							</div>
-						</button>
-						<button class="next-button bg-primary border-primary hover:bg-primary-hover hover:border-primary-hover text-white transition" @click="stepCount++" :disabled="!veganPicked">
-							<div class="flex w-auto">
-								<span>
-									Áfram
-									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
-								</span>
-							</div>
-						</button>
-					</div>
+						</span>
+						<img src="https://www.thespruceeats.com/thmb/hl4lkmdLO7tj1eDCsGbakfk97Co=/3088x2055/filters:fill(auto,1)/marinated-top-round-steak-3060302-hero-02-ed071d5d7e584bea82857112aa734a94.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Nei</h3>
+					</label>
 				</div>
 			</div>
-		</div>
 
-		<div class="w-full h-auto" v-if="stepCount === 3">
-			<div class="flex flex-col">
-				<div class="w-full mb-12 px-6 md:px-0">
-					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
-					<h2 class="font-medium text-4xl">Frá hvaða landi viltu hafa matinn þinn?</h2>
+			<footer>
+				<div class="flex justify-center md:justify-end">
+					<button class="px-6 py-2 mt-12 mr-6 rounded-full uppercase text-sm bg-gray-300 hover:shadow-md text-gray-700 font-bold transition shadow focus:outline-none" @click="stepCount--">Til baka</button>
+					<button class="px-6 py-2 mt-12 rounded-full uppercase text-sm bg-teal-300 hover:shadow-md text-teal-800 font-bold transition shadow focus:outline-none" @click="stepCount++" :disabled="veganPick === ''">Áfram</button>
+				</div>
+			</footer>
+		</section>
+
+		<section v-if="(veganPick === true && stepCount === 3)">
+			<header class="mb-12">
+				<small class="text-sm text-gray-700"><span v-text="stepCount"></span>/<span v-text="numberOfSlides"></span></small>
+				<h2 class="text-5xl text-purple-600">Ertu Pesceterian?</h2>
+			</header>
+
+			<div class="flex -mx-2 flex-col md:flex-row">
+				<div class="flex-1 m-2">
+					<input type="radio" id="pesceterian" name="pesceterianPick" :value="true" class="opacity-0 fixed w-0" v-model="pesceterianPick">
+					<label for="pesceterian" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://images.immediate.co.uk/production/volatile/sites/2/2018/10/OLI-1018_Everyday-PanFriedCodWithGiantBeanChard_28546-acc2f54.jpg?quality=90&crop=20px%2C3414px%2C5444px%2C2342px&resize=960%2C408" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Já</h3>
+					</label>
 				</div>
 
-				<div class="w-full px-6 md:px-0">
-					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Evrópa" value="Evrópa" class="opacity-0 fixed w-0" v-model="continentsPicked">
-								<label for="Evrópa" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-globe-europe fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Evrópa</h4>
-								</label>
+				<div class="flex-1 m-2">
+					<input type="radio" id="notPesceterian" name="pesceterianPick" :value="false" class="opacity-0 fixed w-0" v-model="pesceterianPick">
+					<label for="notPesceterian" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</div>
-
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Asía" value="Asía" class="opacity-0 fixed w-0" v-model="continentsPicked">
-								<label for="Asía" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-globe-asia fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Asía</h4>
-								</label>
-							</div>
-						</div>
-
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Suður-Ameríka" value="Suður-Ameríka" class="opacity-0 fixed w-0" v-model="continentsPicked">
-								<label for="Suður-Ameríka" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-globe-americas fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Suður-Ameríka</h4>
-								</label>
-							</div>
-						</div>
-
-						<!-- <div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Afríka" value="Afríka" class="opacity-0 fixed w-0" v-model="continentsPicked">
-								<label for="Afríka" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-globe-africa fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Afríka</h4>
-								</label>
-							</div>
-						</div> -->
-					</div>
-				</div>
-
-				<div class="w-full mt-12 px-6 md:px-0">
-					<div class="flex justify-between">
-						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
-							<div class="flex w-auto">
-								<span>
-									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
-									Til baka
-								</span>
-							</div>
-						</button>
-						<button class="next-button bg-primary border-primary hover:bg-primary-hover hover:border-primary-hover text-white transition" @click="stepCount++" :disabled="!continentsPicked">
-							<div class="flex w-auto">
-								<span>
-									Áfram
-									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
-								</span>
-							</div>
-						</button>
-					</div>
+						</span>
+						<img src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2018/05/vegan-chilli.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Nei</h3>
+					</label>
 				</div>
 			</div>
-		</div>
 
-		<div class="w-full h-auto" v-if="stepCount === 4">
-			<div class="flex flex-col">
-				<div class="w-full mb-12 px-6 md:px-0">
-					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
-					<h2 class="font-medium text-4xl">Í hverju ertu í stuði fyrir?</h2>
+			<footer>
+				<div class="flex justify-center md:justify-end">
+					<button class="px-6 py-2 mt-12 mr-6 rounded-full uppercase text-sm bg-gray-300 hover:shadow-md text-gray-700 font-bold transition shadow focus:outline-none" @click="stepCount--">Til baka</button>
+					<button class="px-6 py-2 mt-12 rounded-full uppercase text-sm bg-teal-300 hover:shadow-md text-teal-800 font-bold transition shadow focus:outline-none" @click="stepCount++" :disabled="pesceterianPick === ''">Áfram</button>
 				</div>
+			</footer>
+		</section>
 
-				<div class="w-full px-6 md:px-0">
-					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked !== 'Vegan'">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Fisk" value="Fiskur" class="opacity-0 fixed w-0" v-model="foodPicked">
-								<label for="Fisk" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-fish fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Fisk</h4>
-								</label>
-							</div>
-						</div>
+		<section v-if="(veganPick === true && stepCount === 4)">
+			<header class="mb-12">
+				<small class="text-sm text-gray-700"><span v-text="stepCount"></span>/<span v-text="numberOfSlides"></span></small>
+				<h2 class="text-5xl text-purple-600">Frá hvaða landi viltu hafa rétinn þinn?</h2>
+			</header>
 
-						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Kjöt" value="Kjöt" class="opacity-0 fixed w-0" v-model="foodPicked">
-								<label for="Kjöt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-steak fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Kjöt</h4>
-								</label>
+			<div class="flex -mx-2 flex-col md:flex-row">
+				<div class="flex-1 m-2">
+					<input type="radio" id="europe" name="europe" value="Evrópa" class="opacity-0 fixed w-0" v-model="continentsPick">
+					<label for="europe" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</div>
-
-						<div class="flex-1 h-auto mb-6 md:mb-0" v-if="veganPicked === 'Ekki vegan'">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Kjúkling" value="Kjúklingur" class="opacity-0 fixed w-0" v-model="foodPicked">
-								<label for="Kjúkling" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-drumstick fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Kjúkling</h4>
-								</label>
-							</div>
-						</div>
-
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Súpu" value="Súpa" class="opacity-0 fixed w-0" v-model="foodPicked">
-								<label for="Súpu" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-soup fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Súpu</h4>
-								</label>
-							</div>
-						</div>
-
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Annað" value="Annað" class="opacity-0 fixed w-0" v-model="foodPicked">
-								<label for="Annað" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-salad fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Annað</h4>
-								</label>
-							</div>
-						</div>
-					</div>
+						</span>
+						<img src="https://www.cookingforkeeps.com/wp-content/uploads/2019/09/Creamy-Tomato-Pasta-Recipe-1.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Evrópu</h3>
+					</label>
 				</div>
-
-				<div class="w-full mt-12 px-6 md:px-0">
-					<div class="flex justify-between">
-						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
-							<div class="flex w-auto">
-								<span>
-									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
-									Til baka
-								</span>
+				<div class="flex-1 m-2">
+					<input type="radio" id="asia" name="asia" value="Asía" class="opacity-0 fixed w-0" v-model="continentsPick">
+					<label for="asia" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</button>
-						<button class="next-button bg-primary border-primary hover:bg-primary-hover hover:border-primary-hover text-white transition" @click="stepCount++" :disabled="!foodPicked">
-							<div class="flex w-auto">
-								<span>
-									Áfram
-									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
-								</span>
+						</span>
+						<img src="https://d1doqjmisr497k.cloudfront.net/-/media/mccormick-us/recipes/kitchen-basics/v/2000/vietnamese_beef_noodle_soup.jpg?vd=20180710T030705Z&hash=100D38A9100111E685CB7A3F80495B0EFD6A6754" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Asía</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="southAmerica" name="southAmerica" value="Suður-Ameríka" class="opacity-0 fixed w-0" v-model="continentsPick">
+					<label for="southAmerica" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</button>
-					</div>
+						</span>
+						<img src="https://www.wearesovegan.com/wp-content/uploads/2019/11/veganwalnutmeattacosrecipe-h1.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Suður-Ameríka</h3>
+					</label>
 				</div>
 			</div>
-		</div>
 
-		<div class="w-full h-auto" v-if="stepCount === 5">
-			<div class="flex flex-col">
-				<div class="w-full mb-12 px-6 md:px-0">
-					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
-					<h2 class="font-medium text-4xl">Viltu sterkan mat eða ekki?</h2>
+			<footer>
+				<div class="flex justify-center md:justify-end">
+					<button class="px-6 py-2 mt-12 mr-6 rounded-full uppercase text-sm bg-gray-300 hover:shadow-md text-gray-700 font-bold transition shadow focus:outline-none" @click="stepCount--">Til baka</button>
+					<button class="px-6 py-2 mt-12 rounded-full uppercase text-sm bg-teal-300 hover:shadow-md text-teal-800 font-bold transition shadow focus:outline-none" @click="stepCount++" :disabled="continentsPick === ''">Áfram</button>
 				</div>
+			</footer>
+		</section>
 
-				<div class="w-full px-6 md:px-0">
-					<div class="flex flex-col md:flex-row -mx-2">
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="Sterkt" value="1" class="opacity-0 fixed w-0" v-model="spicyPicked">
-								<label for="Sterkt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-pepper-hot fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Sterkt</h4>
-								</label>
-							</div>
-						</div>
+		<section v-if="(veganPick === true && pesceterianPick === true && stepCount === 5)">
+			<header class="mb-12">
+				<small class="text-sm text-gray-700"><span v-text="stepCount"></span>/<span v-text="numberOfSlides"></span></small>
+				<h2 class="text-5xl text-purple-600">Hvað langar þér í?</h2>
+			</header>
 
-						<div class="flex-1 h-auto mb-6 md:mb-0">
-							<div class="flex h-48 items-center">
-								<input type="radio" id="EkkiSterkt" value="0" class="opacity-0 fixed w-0" v-model="spicyPicked">
-								<label for="EkkiSterkt" class="selection inline-block flex-1 h-48 hover:shadow-md" :class="(mode === 'dark-mode') ? 'dark-mode-selection' : ''">
-									<i class="fad fa-leaf fa-4x pt-8"></i>
-									<h4 class="font-bold uppercase pt-4">Ekki Sterkt</h4>
-								</label>
+			<div class="flex -mx-2 flex-col md:flex-row">
+				<div class="flex-1 m-2">
+					<input type="radio" id="fish" name="fish" value="Fisk" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="fish" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</div>
-					</div>
+						</span>
+						<img src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2019/10/fish-mappas.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Fisk</h3>
+					</label>
 				</div>
-
-				<div class="w-full mt-12 px-6 md:px-0">
-					<div class="flex justify-between">
-						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
-							<div class="flex w-auto">
-								<span>
-									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
-									Til baka
-								</span>
+				<div class="flex-1 m-2">
+					<input type="radio" id="salad" name="salad" value="Salat" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="salad" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</button>
-						<button class="next-button bg-primary border-primary hover:bg-primary-hover hover:border-primary-hover text-white transition" @click="stepCount++" :disabled="!spicyPicked">
-							<div class="flex w-auto">
-								<span>
-									Áfram
-									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
-								</span>
-							</div>
-						</button>
-					</div>
+						</span>
+						<img src="https://storage.googleapis.com/gen-atmedia/3/2019/04/bf60875cb8a85fc2c68aadb386f3844720d14467.jpeg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Salat</h3>
+					</label>
 				</div>
-			</div>
-		</div>
-
-		<div class="w-full h-auto" v-if="stepCount === 6">
-			<div class="flex flex-col">
-				<div class="w-full mb-12 px-6 md:px-0">
-					<small class="text-gray-600"><span v-text="stepCount"></span> / <span v-text="numberOfSlides"></span></small>
-					<h2 class="font-medium text-4xl">Er þetta rétt?</h2>
-				</div>
-
-				<div class="w-full px-6 md:px-0">
-					<table class="text-left w-full border-collapse">
-						<thead>
-							<tr class="flex">
-								<th class="w-6/12 py-2 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-primary-gray">Spurning</th>
-								<th class="flex-1 py-2 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-primary-gray">Þú valdir</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="flex">
-								<td class="w-6/12 py-4 border-b border-primary-gray"><a @click="stepCount = 1" class="hover:text-primary transition cursor-pointer">Eftir hverju ertu að leita?</a></td>
-								<td class="flex-1 py-4 border-b border-primary-gray"><span v-text="mealsPicked"></span></td>
-							</tr>
-							<tr class="flex">
-								<td class="w-6/12 py-4 border-b border-primary-gray"><a @click="stepCount = 2" class="hover:text-primary transition cursor-pointer">Ertu vegan?</a></td>
-								<td class="flex-1 py-4 border-b border-primary-gray"><span v-text="veganPicked"></span></td>
-							</tr>
-							<tr class="flex">
-								<td class="w-6/12 py-4 border-b border-primary-gray"><a @click="stepCount = 3" class="hover:text-primary transition cursor-pointer">Frá hvaða landi viltu hafa matinn þinn?</a></td>
-								<td class="flex-1 py-4 border-b border-primary-gray"><span v-text="continentsPicked"></span></td>
-							</tr>
-							<tr class="flex">
-								<td class="w-6/12 py-4 border-b border-primary-gray"><a @click="stepCount = 4" class="hover:text-primary transition cursor-pointer">Í hverju ertu í stuði fyrir?</a></td>
-								<td class="flex-1 py-4 border-b border-primary-gray"><span v-text="foodPicked"></span></td>
-							</tr>
-							<tr class="flex">
-								<td class="w-6/12 py-4 border-b border-primary-gray"><a @click="stepCount = 5" class="hover:text-primary transition cursor-pointer">Viltu sterkan mat eða ekki?</a></td>
-								<td class="flex-1 py-4 border-b border-primary-gray" v-if="spicyPicked === '1'">Já</td>
-								<td class="flex-1 py-4 border-b border-primary-gray" v-else>Nei</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-
-				<div class="w-full mt-12 px-6 md:px-0">
-					<div class="flex justify-between">
-						<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
-							<div class="flex w-auto">
-								<span>
-									<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
-									Til baka
-								</span>
+				<div class="flex-1 m-2">
+					<input type="radio" id="soup" name="soup" value="Súpa" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="soup" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</button>
-						<button class="next-button bg-primary border-primary hover:bg-primary-hover hover:border-primary-hover text-white transition" @click.once="submitForm(); stepCount++;">
-							<div class="flex w-auto">
-								<span>
-									Áfram
-									<i class="fad fa-long-arrow-alt-right pl-2 self-center"></i>
-								</span>
+						</span>
+						<img src="https://cdn.apartmenttherapy.info/image/upload/v1568325131/k/Photo/Series/2019-09-snapshot-trader-joes-dinners/Snapshot-Trader-Joes_Tomato-Soup-Gnocchi-Spinach_004.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Súpu</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="other" name="other" value="Annað" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="other" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</button>
-					</div>
+						</span>
+						<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/easy-pescatarian-recipes-buffalo-shrimp-1557436222.jpg?crop=1xw:1xh;center,top&resize=480:*" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Annað</h3>
+					</label>
 				</div>
 			</div>
-		</div>
 
+			<footer>
+				<div class="flex justify-center md:justify-end">
+					<button class="px-6 py-2 mt-12 mr-6 rounded-full uppercase text-sm bg-gray-300 hover:shadow-md text-gray-700 font-bold transition shadow focus:outline-none" @click="stepCount--">Til baka</button>
+					<button class="px-6 py-2 mt-12 rounded-full uppercase text-sm bg-teal-300 hover:shadow-md text-teal-800 font-bold transition shadow focus:outline-none" @click="stepCount++" :disabled="foodPick === ''">Áfram</button>
+				</div>
+			</footer>
+		</section>
 
-		<div v-if="stepCount === 7">
-			<div v-if="!loading">
-				<div class="w-full h-auto">
-					<div class="flex flex-col">
-						<div class="w-full mb-12 px-6 md:px-0">
-							<div class="flex">
-								<div class="flex-1">
-									<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition" @click="stepCount--">
-										<div class="flex w-auto">
-											<span>
-												<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
-												Til baka
-											</span>
-										</div>
-									</button>
-								</div>
-								<div class="flex-1 self-center" v-if="recipes.length > 1">
-									<a class="self-center text-sm text-primary-gray hover:text-primary transition cursor-pointer flex float-right" @click="checkingIfArrayLengthIsShorterThenIndexForLoop">
-										Sækja nýja uppskrift
-										<i class="fas fa-sync-alt pl-2 self-center"></i>
-									</a>
-								</div>
+		<section v-if="(veganPick === true && pesceterianPick === false && stepCount === 5)">
+			<header class="mb-12">
+				<small class="text-sm text-gray-700"><span v-text="stepCount"></span>/<span v-text="numberOfSlides"></span></small>
+				<h2 class="text-5xl text-purple-600">Hvað langar þér í?</h2>
+			</header>
+
+			<div class="flex -mx-2 flex-col md:flex-row">
+				<div class="flex-1 m-2">
+					<input type="radio" id="fish" name="fish" value="Fisk" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="fish" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</div>
-					</div>
-
-					<div class="w-full px-6 md:px-0">
-						<div v-if="!recipes.length">
-							Engar uppskriftir fundust
-						</div>
-						<div v-else>
-							<div class="flex flex-col md:flex-row">
-								<div class="md:w-9/12 z-0 md:z-10 self-center">
-									<img :src="'/images/' + recipes[indexLoop].link_to_image" width="100%">
-								</div>
-								<div class="w-full z-0 md:z-20 p-6 bg-white shadow-lg" :class="(mode === 'dark-mode') ? 'bg-gray-900' : ''">
-									<h2 class="font-medium text-2xl leading-tight mb-8" v-text="recipes[indexLoop].title"></h2>
-									<p class="text-sm my-4" v-text="recipes[indexLoop].paragraph"></p>
-
-									<div class="flex flex-col md:flex-row">
-										<div class="w-full md:w-1/3">
-											<table class="text-left w-full border-collapse -my-2">
-												<tbody v-for="ingredient in recipes[indexLoop].ingredients">
-													<tr class="flex" v-for="(step, index, key) in ingredient" v-if="key == index">
-														<td class="py-2 border-b border-primary-gray w-full" v-if="step"> <!-- :class="!ingredient[indexLoop].index ? 'invisible' : ''" -->
-															<p class="text-sm" v-text="step"></p>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<div class="w-full md:flex-1 px-0 md:px-3">
-											<h4 class="uppercase text-sm font-bold mt-8 md:mt-0 visible md:invisible">Aðferð</h4>
-
-											<div v-for="instruction in recipes[indexLoop].instructions" class="-mt-0 md:-mt-6">
-												<ul>
-													<li v-for="(step, index, key) in instruction" v-if="key == index">
-														<p class="text-sm leading-relaxed mb-4">{{ step }}</p>
-													</li>
-												</ul>
-											</div>
-										</div>	
-									</div>
-								</div>
+						</span>
+						<img src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2019/10/fish-mappas.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Fisk</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="salad" name="salad" value="Salat" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="salad" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
 							</div>
-						</div>
-					</div>
+						</span>
+						<img src="https://storage.googleapis.com/gen-atmedia/3/2019/04/bf60875cb8a85fc2c68aadb386f3844720d14467.jpeg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Salat</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="soup" name="soup" value="Súpa" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="soup" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://cdn.apartmenttherapy.info/image/upload/v1568325131/k/Photo/Series/2019-09-snapshot-trader-joes-dinners/Snapshot-Trader-Joes_Tomato-Soup-Gnocchi-Spinach_004.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Súpu</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="other" name="other" value="Annað" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="other" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/easy-pescatarian-recipes-buffalo-shrimp-1557436222.jpg?crop=1xw:1xh;center,top&resize=480:*" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Annað</h3>
+					</label>
 				</div>
 			</div>
-			<div v-else>
-				Við erum að sækja gögninn handa þér
+
+			<footer>
+				<div class="flex justify-center md:justify-end">
+					<button class="px-6 py-2 mt-12 mr-6 rounded-full uppercase text-sm bg-gray-300 hover:shadow-md text-gray-700 font-bold transition shadow focus:outline-none" @click="stepCount--">Til baka</button>
+					<button class="px-6 py-2 mt-12 rounded-full uppercase text-sm bg-teal-300 hover:shadow-md text-teal-800 font-bold transition shadow focus:outline-none" @click="stepCount++" :disabled="foodPick === ''">Áfram</button>
+				</div>
+			</footer>
+		</section>
+
+		<section v-if="(veganPick === true && stepCount === 6)">
+			<header class="mb-12">
+				<small class="text-sm text-gray-700"><span v-text="stepCount"></span>/<span v-text="numberOfSlides"></span></small>
+				<h2 class="text-5xl text-purple-600">Fílaru sterkan mat eða ekki?</h2>
+			</header>
+
+			<div class="flex -mx-2 flex-col md:flex-row">
+				<div class="flex-1 m-2">
+					<input type="radio" id="spicy" name="spicy" :value="true" class="opacity-0 fixed w-0" v-model="spicyPick">
+					<label for="spicy" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://penntoday.upenn.edu/sites/default/files/2019-02/spicypeppers.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Já</h3>
+					</label>
+				</div>
+
+				<div class="flex-1 m-2">
+					<input type="radio" id="notSpicy" name="spicy" :value="false" class="opacity-0 fixed w-0" v-model="spicyPick">
+					<label for="notSpicy" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://www.onceuponachef.com/images/2019/07/Big-Italian-Salad-760x983.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Nei</h3>
+					</label>
+				</div>
 			</div>
-		</div>
-	</div>
-</div>
+
+			<footer>
+				<div class="flex justify-center md:justify-end">
+					<button class="px-6 py-2 mt-12 mr-6 rounded-full uppercase text-sm bg-gray-300 hover:shadow-md text-gray-700 font-bold transition shadow focus:outline-none" @click="stepCount--">Til baka</button>
+					<button class="px-6 py-2 mt-12 rounded-full uppercase text-sm bg-teal-300 hover:shadow-md text-teal-800 font-bold transition shadow focus:outline-none" @click="submitForm(); stepCount++" :disabled="spicyPick === ''">Sækja uppskriftir</button>
+				</div>
+			</footer>
+		</section>
+
+		<recipes :recipes="recipes" :loading="loading" v-if="(veganPick === true && stepCount === 7)"></recipes>
+
+		<section v-if="(this.veganPick === false && this.stepCount === 3)">
+			<header class="mb-12">
+				<small class="text-sm text-gray-700"><span v-text="stepCount"></span>/<span v-text="numberOfSlides"></span></small>
+				<h2 class="text-5xl text-purple-600">Frá hvaða landi viltu hafa rétinn þinn?</h2>
+			</header>
+
+			<div class="flex -mx-2 flex-col md:flex-row">
+				<div class="flex-1 m-2">
+					<input type="radio" id="europe" name="europe" value="Evrópa" class="opacity-0 fixed w-0" v-model="continentsPick">
+					<label for="europe" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://www.cookingforkeeps.com/wp-content/uploads/2019/09/Creamy-Tomato-Pasta-Recipe-1.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Evrópu</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="asia" name="asia" value="Asía" class="opacity-0 fixed w-0" v-model="continentsPick">
+					<label for="asia" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://d1doqjmisr497k.cloudfront.net/-/media/mccormick-us/recipes/kitchen-basics/v/2000/vietnamese_beef_noodle_soup.jpg?vd=20180710T030705Z&hash=100D38A9100111E685CB7A3F80495B0EFD6A6754" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Asía</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="southAmerica" name="southAmerica" value="Suður-Ameríka" class="opacity-0 fixed w-0" v-model="continentsPick">
+					<label for="southAmerica" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://www.wearesovegan.com/wp-content/uploads/2019/11/veganwalnutmeattacosrecipe-h1.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Suður-Ameríka</h3>
+					</label>
+				</div>
+			</div>
+
+			<footer>
+				<div class="flex justify-center md:justify-end">
+					<button class="px-6 py-2 mt-12 mr-6 rounded-full uppercase text-sm bg-gray-300 hover:shadow-md text-gray-700 font-bold transition shadow focus:outline-none" @click="stepCount--">Til baka</button>
+					<button class="px-6 py-2 mt-12 rounded-full uppercase text-sm bg-teal-300 hover:shadow-md text-teal-800 font-bold transition shadow focus:outline-none" @click="stepCount++" :disabled="continentsPick === ''">Áfram</button>
+				</div>
+			</footer>
+		</section>
+
+		<section v-if="(this.veganPick === false && this.stepCount === 4)">
+			<header class="mb-12">
+				<small class="text-sm text-gray-700"><span v-text="stepCount"></span>/<span v-text="numberOfSlides"></span></small>
+				<h2 class="text-5xl text-purple-600">Hvað langar þér í?</h2>
+			</header>
+
+			<div class="flex -mx-2 flex-col md:flex-row">
+				<div class="flex-1 m-2">
+					<input type="radio" id="fish" name="fish" value="Fisk" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="fish" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2019/10/fish-mappas.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Fisk</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="meat" name="meat" value="Kjöt" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="meat" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://i.cbc.ca/1.4491288.1516208229!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cowboysteak.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Kjöti</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="chicken" name="chicken" value="Kjúklingur" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="chicken" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://storage.googleapis.com/gen-atmedia/3/2018/08/81c789616423c70a9230bb209f9385854ec595a9.jpeg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Kjúklingur</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="soup" name="soup" value="Súpa" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="soup" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://cdn.apartmenttherapy.info/image/upload/v1568325131/k/Photo/Series/2019-09-snapshot-trader-joes-dinners/Snapshot-Trader-Joes_Tomato-Soup-Gnocchi-Spinach_004.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Súpu</h3>
+					</label>
+				</div>
+				<div class="flex-1 m-2">
+					<input type="radio" id="other" name="other" value="Annað" class="opacity-0 fixed w-0" v-model="foodPick">
+					<label for="other" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/easy-pescatarian-recipes-buffalo-shrimp-1557436222.jpg?crop=1xw:1xh;center,top&resize=480:*" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Annað</h3>
+					</label>
+				</div>
+			</div>
+
+			<footer>
+				<div class="flex justify-center md:justify-end">
+					<button class="px-6 py-2 mt-12 mr-6 rounded-full uppercase text-sm bg-gray-300 hover:shadow-md text-gray-700 font-bold transition shadow focus:outline-none" @click="stepCount--">Til baka</button>
+					<button class="px-6 py-2 mt-12 rounded-full uppercase text-sm bg-teal-300 hover:shadow-md text-teal-800 font-bold transition shadow focus:outline-none" @click="stepCount++" :disabled="foodPick === ''">Áfram</button>
+				</div>
+			</footer>
+		</section>
+
+		<section v-if="(this.veganPick === false && this.stepCount === 5)">
+			<header class="mb-12">
+				<small class="text-sm text-gray-700"><span v-text="stepCount"></span>/<span v-text="numberOfSlides"></span></small>
+				<h2 class="text-5xl text-purple-600">Fílaru sterkan mat eða ekki?</h2>
+			</header>
+
+			<div class="flex -mx-2 flex-col md:flex-row">
+				<div class="flex-1 m-2">
+					<input type="radio" id="spicy" name="spicy" :value="true" class="opacity-0 fixed w-0" v-model="spicyPick">
+					<label for="spicy" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://penntoday.upenn.edu/sites/default/files/2019-02/spicypeppers.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Já</h3>
+					</label>
+				</div>
+
+				<div class="flex-1 m-2">
+					<input type="radio" id="notSpicy" name="spicy" :value="false" class="opacity-0 fixed w-0" v-model="spicyPick">
+					<label for="notSpicy" class="inline-block w-full rounded-lg bg-white border-4 border-white p-6 shadow hover:shadow-md transition cursor-pointer relative">
+						<span class="w-6 md:w-8 h-6 md:h-8 rounded-full bg-purple-600 absolute top-0 right-0 m-8 md:m-10 checkedSign invisible text-center">
+							<div class="flex h-full w-full justify-center content-center">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3 md:w-4" fill="#FFF"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+							</div>
+						</span>
+						<img src="https://www.onceuponachef.com/images/2019/07/Big-Italian-Salad-760x983.jpg" class="rounded-lg h-48 w-full object-cover">
+						<h3 class="mt-6 text-3xl text-gray-800 text-center md:text-left">Nei</h3>
+					</label>
+				</div>
+			</div>
+
+			<footer>
+				<div class="flex justify-center md:justify-end">
+					<button class="px-6 py-2 mt-12 mr-6 rounded-full uppercase text-sm bg-gray-300 hover:shadow-md text-gray-700 font-bold transition shadow focus:outline-none" @click="stepCount--">Til baka</button>
+					<button class="px-6 py-2 mt-12 rounded-full uppercase text-sm bg-teal-300 hover:shadow-md text-teal-800 font-bold transition shadow focus:outline-none" @click="submitForm(); stepCount++" :disabled="spicyPick === ''">Sækja uppskriftir</button>
+				</div>
+			</footer>
+		</section>
+
+		<recipes :recipes="recipes" :loading="loading" @stepback="stepCount--" v-if="(this.veganPick === false && this.stepCount === 6)"></recipes> <!-- missing stepCount -->
+	</main>
 </template>
 
 <script>
+import recipes from './RecipesComponent.vue';
+
 export default {
-	props: ['mode'],
+	components: { recipes },
 
 	data() {
 		return {
 			stepCount: 1,
 			numberOfSlides: 6,
-			mealsPicked: '',
-			veganPicked: '',
-			continentsPicked: '',
-			foodPicked: '',
-			spicyPicked: '',
-			executed: false,
-			recipes: '',
-			indexLoop: 0,
 			loading: true,
+			veganPick: '',
+			pesceterianPick: '',
+			continentsPick: '',
+			foodPick: '',
+			spicyPick: '',
+			recipes: '',
 		}
 	},
 
 	methods: {
-		submitForm () {
+		submitForm() {
 			axios.get('/uppskriftir/sækja', {
 				params: {
-					maltid: this.mealsPicked,
-					vegan: this.veganPicked,
-					heimsalfa: this.continentsPicked,
-					kjot: this.foodPicked,
-					spicy: this.spicyPicked
+					vegan: this.veganPick,
+					pesceterian: this.pesceterianPick,
+					continents: this.continentsPick,
+					food: this.foodPick,
+					spicy: this.spicyPick
 				}
 			})
 			.then(response => {
@@ -510,21 +532,33 @@ export default {
 			})
 			.catch(function (error) {})
 			.finally(() => this.loading = false);
-		},
-
-		checkingIfArrayLengthIsShorterThenIndexForLoop() {
-			if ((this.recipes.length-1) <= this.indexLoop) {
-				return this.indexLoop = 0;
-			} else {
-				this.indexLoop++;
-			}
 		}
-	}
+	},
 };
 </script>
 
 <style>
-.next-button:disabled {
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% {  transform: rotate(359deg); }
+}
+
+#loading-symbol {
+	animation: spin 2s linear infinite;
+}
+
+#overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+}
+
+/*.next-button:disabled {
 	background: transparent;
 	color: #9E9E9E;
 	border-color: #9E9E9E
@@ -552,5 +586,5 @@ export default {
 	background: #2d3748;
 	border-color: #E67635;
 	color: #E67635;
-}
-</style>
+	}*/
+	</style>
