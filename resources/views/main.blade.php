@@ -13,17 +13,16 @@
 
 	<!-- Fonts -->
 	<link href="/css/app.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-ekOryaXPbeCpWQNxMwSWVvQ0+1VrStoPJq54shlYhR8HzQgig1v5fas6YgOqLoKz" crossorigin="anonymous">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	{{-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92315209-5"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-92315209-5"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
 
 		gtag('config', 'UA-92315209-5');
-	</script> --}}
+	</script>
 </head>
 <body>
 	<div id="app">

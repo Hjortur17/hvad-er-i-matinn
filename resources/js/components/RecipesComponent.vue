@@ -9,7 +9,6 @@
 								<button class="border-primary-gray text-primary-gray hover:bg-primary-gray hover:text-primary-gray-light transition outline-none focus:outline-none" @click="$emit('stepback')">
 									<div class="flex w-auto">
 										<span class="text-xs md:text-sm">
-											<i class="fad fa-long-arrow-alt-left pr-2 self-center"></i>
 											Til baka
 										</span>
 									</div>
@@ -17,8 +16,7 @@
 							</div>
 							<div class="flex-1 self-center" v-if="recipes.length > 1">
 								<a class="self-center text-xs md:text-sm text-primary-gray hover:text-primary transition cursor-pointer flex float-right" @click="checkingIfArrayLengthIsShorterThenIndexForLoop">
-									<span class="pr-2 md:pr-4">Sækja nýja uppskrift</span>
-									<i class="fas fa-sync-alt self-center"></i>
+									Sækja nýja uppskrift
 								</a>
 							</div>
 						</div>
@@ -43,21 +41,21 @@
 										<table class="text-left w-full border-collapse -my-2">
 											<tbody>
 												<div v-for="ingredient in recipes[indexLoop].ingredients">
-													<h4 class="uppercase font-medium text-base" v-text="ingredient.firstTitle" v-if="ingredient.firstTitle"></h4>
+													<h4 class="uppercase font-bold text-base" v-text="ingredient.firstTitle" v-if="ingredient.firstTitle"></h4>
 													<tr class="flex" v-for="(value, index) in ingredient" v-if="index < 19">
 														<td class="py-2 border-b border-primary-gray w-full" v-if="value">
 															<p class="text-sm capitalize" v-text="value"></p>
 														</td>
 													</tr>
 
-													<h4 class="uppercase font-medium text-base mt-8" v-text="ingredient.secondTitle" v-if="ingredient.secondTitle"></h4>
+													<h4 class="uppercase font-bold text-base mt-8" v-text="ingredient.secondTitle" v-if="ingredient.secondTitle"></h4>
 													<tr class="flex" v-for="(value, index) in ingredient" v-if="index >= 20 && index < 30">
 														<td class="py-2 border-b border-primary-gray w-full" v-if="value">
 															<p class="text-sm capitalize" v-text="value"></p>
 														</td>
 													</tr>
 
-													<h4 class="uppercase font-medium text-base mt-8" v-text="ingredient.thirdTitle" v-if="ingredient.thirdTitle"></h4>
+													<h4 class="uppercase font-bold text-base mt-8" v-text="ingredient.thirdTitle" v-if="ingredient.thirdTitle"></h4>
 													<tr class="flex" v-for="(value, index) in ingredient" v-if="index >= 30">
 														<td class="py-2 border-b border-primary-gray w-full" v-if="value">
 															<p class="text-sm capitalize" v-text="value"></p>
