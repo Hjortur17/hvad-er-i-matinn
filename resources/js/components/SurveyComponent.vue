@@ -318,7 +318,7 @@
 			</footer>
 		</section>
 
-		<recipes :recipes="recipes" :loading="loading" v-if="(veganPick === true && stepCount === 7)"></recipes>
+		<recipes :recipes="recipes" :loading="loading" @stepback="stepCount--" v-if="(veganPick === true && stepCount === 7)"></recipes>
 
 		<section v-if="(this.veganPick === false && this.stepCount === 3)">
 			<header class="mb-12">
