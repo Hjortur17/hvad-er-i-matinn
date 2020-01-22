@@ -1,21 +1,13 @@
 <template>
-	<nav class="flex flex-row justify-between">
-		<!-- <h1 class="font-bold text-3xl text-teal-400 hover:text-teal-500 transition px-6 md:px-0"><a href="/">hvað er í matinn?</a></h1> -->
-		<!-- <div v-if="mode === 'dark-mode'" class="self-center">
-			<a @click="$emit('toggle')" class="cursor-pointer" title="Dark mode">
-				<i class="fad fa-moon fa-lg"></i>
-			</a>
-		</div>
-		<div v-else class="self-center">
-			<a @click="$emit('toggle')" class="cursor-pointer" title="Dark mode">
-				<i class="fad fa-sun fa-lg"></i>
-			</a>
-		</div> -->
+	<nav>
+		<a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-6 md:w-10 h-auto float-left" fill="#9f7aea"><path d="M416 32a95.17 95.17 0 0 0-57.73 19.74C334.93 20.5 298 0 256 0s-78.93 20.5-102.27 51.74A95.56 95.56 0 0 0 0 128c0 41.74 64 192 64 192h60.09L112 169.25a8 8 0 0 1 7.33-8.61l16-1.28a8 8 0 0 1 8.61 7.34L156.2 320h83.14V168a8 8 0 0 1 8-8h16a8 8 0 0 1 8 8v152h84.46l12.27-153.3a8 8 0 0 1 8.61-7.34l16 1.28a8 8 0 0 1 7.33 8.61L387.91 320H448s64-150.26 64-192a96 96 0 0 0-96-96z" class="fa-secondary"/><path d="M64 480a32 32 0 0 0 32 32h320a32 32 0 0 0 32-32V352H64z" class="fa-primary"/></svg></a>
 	</nav>
 </template>
 
 <script>
-export default {
-	props: ['mode'],
-};
+export default {};
 </script>
+
+<style>
+	.fa-secondary{opacity:.4}
+</style>
