@@ -18,14 +18,14 @@
 			<div class="max-w-md mx-auto my-12">
 				<div class="flex justify-center flex-wrap flex-row">
 					<div class="w-auto">
-						<input type="radio" id="vegan" name="veganPick" :value="true" class="opacity-0 fixed w-0" v-model="veganPick">
+						<input type="radio" id="vegan" name="veganPick" :value="true" class="opacity-0 fixed w-0" v-model="veganPick" @click="pesceterianPick = ''">
 						<label for="vegan" class="inline-block relative px-6 py-2 border-2 border-white bg-white rounded-full transition shadow hover:shadow-md m-2">
 							<h3 class="text-center text-sm md:text-base">Já</h3>
 						</label>
 					</div>
 
 					<div class="w-auto">
-						<input type="radio" id="notVegan" name="veganPick" :value="false" class="opacity-0 fixed w-0" v-model="veganPick">
+						<input type="radio" id="notVegan" name="veganPick" :value="false" class="opacity-0 fixed w-0" v-model="veganPick" @click="pesceterianPick = false">
 						<label for="notVegan" class="inline-block relative px-6 py-2 border-2 border-white bg-white rounded-full transition shadow hover:shadow-md m-2">
 							<h3 class="text-center text-sm md:text-base">Nei</h3>
 						</label>
@@ -342,6 +342,8 @@ export default {
 
 	methods: {
 		submitForm() {
+			this.recipes = '';
+
 			axios.get('/uppskriftir/sækja', {
 				params: {
 					vegan: this.veganPick,
@@ -357,7 +359,7 @@ export default {
 			.catch(function (error) {})
 			.finally(() => this.loading = false);
 		}
-	}
+	},
 };
 </script>
 

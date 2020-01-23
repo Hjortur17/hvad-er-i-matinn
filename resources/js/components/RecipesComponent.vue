@@ -6,7 +6,7 @@
 						<div class="w-full">
 							<button class="outline-none focus:outline-none hover:text-teal-500 transition font-light text-sm" @click="$emit('stepback')">Til baka</button>
 						</div>
-						<div class="w-full">
+						<div class="w-full mt-12">
 							<p>Engar uppskriftir fundust</p>
 						</div>
 					</div>
@@ -23,7 +23,7 @@
 
 						<div>
 							<h3 class="font-extrabold text-4xl leading-tight" v-text="recipes[indexLoop].title"></h3>
-							<p class="text-sm mb-12">Þessi uppskrift er fengin af: <a :href="'http://' + recipes[indexLoop].credit" class="hover:text-teal-500 transition" target="_blank" rel="noopener">{{ recipes[indexLoop].credit }}</a></p>
+							<p class="text-sm mt-2 mb-12">Þessi uppskrift er fengin af: <a :href="'http://' + recipes[indexLoop].credit" class="hover:text-teal-500 transition" target="_blank" rel="noopener">{{ recipes[indexLoop].credit }}</a></p>
 
 							<div class="flex flex-col md:flex-row">
 								<div class="w-full md:w-1/3">
