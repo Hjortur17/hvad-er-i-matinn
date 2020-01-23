@@ -1,15 +1,14 @@
 <template>
 	<section>
 		<div v-if="!loading" class="py-12">
-				<!-- <div class="flex-1 self-center" v-if="recipes.length > 1">
-					<a class="self-center text-xs md:text-sm text-primary-gray hover:text-primary transition cursor-pointer flex float-right" @click="checkingIfArrayLengthIsShorterThenIndexForLoop">
-						Sækja nýja uppskrift
-					</a>
-				</div> -->
-
 				<div class="w-full">
 					<div v-if="!recipes.length">
-						Engar uppskriftir fundust
+						<div class="w-full">
+							<button class="outline-none focus:outline-none hover:text-teal-500 transition font-light text-sm" @click="$emit('stepback')">Til baka</button>
+						</div>
+						<div class="w-full">
+							<p>Engar uppskriftir fundust</p>
+						</div>
 					</div>
 					<div v-else>
 						<header class="mb-12">

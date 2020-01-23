@@ -13,8 +13,6 @@
 		<section v-if="stepCount === 2" class="text-center">
 			<header class="max-w-xl mx-auto">
 				<h2 class="text-3xl md:text-4xl">Ertu vegan?</h2>
-				<p class="text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</header>
 
 			<div class="max-w-md mx-auto my-12">
@@ -46,8 +44,6 @@
 		<section v-if="(veganPick === true && stepCount === 3)" class="text-center">
 			<header class="max-w-xl mx-auto">
 				<h2 class="text-3xl md:text-4xl">Ertu pesceterian?</h2>
-				<p class="text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</header>
 
 			<div class="max-w-md mx-auto my-12">
@@ -79,8 +75,6 @@
 		<section v-if="(veganPick === true && stepCount === 4)" class="text-center">
 			<header class="max-w-xl mx-auto">
 				<h2 class="text-3xl md:text-4xl">Hvers lenskan viltu hafa réttinn?</h2>
-				<p class="text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</header>
 
 			<div class="max-w-md mx-auto my-12">
@@ -119,8 +113,6 @@
 		<section v-if="(veganPick === true && stepCount === 5)" class="text-center">
 			<header class="max-w-xl mx-auto">
 				<h2 class="text-3xl md:text-4xl">Hvað langar þér í?</h2>
-				<p class="text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</header>
 
 			<div class="max-w-md mx-auto my-12">
@@ -166,8 +158,6 @@
 		<section v-if="(veganPick === true && stepCount === 6)" class="text-center">
 			<header class="max-w-xl mx-auto">
 				<h2 class="text-3xl md:text-4xl">Borðar þú sterkan mat?</h2>
-				<p class="text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</header>
 
 			<div class="max-w-md mx-auto my-12">
@@ -201,8 +191,6 @@
 		<section v-if="(veganPick === false && stepCount === 3)" class="text-center">
 			<header class="max-w-xl mx-auto">
 				<h2 class="text-3xl md:text-4xl">Hvers lenskan viltu hafa réttinn?</h2>
-				<p class="text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</header>
 
 			<div class="max-w-md mx-auto my-12">
@@ -241,8 +229,6 @@
 		<section v-if="(veganPick === false && stepCount === 4)" class="text-center">
 			<header class="max-w-xl mx-auto">
 				<h2 class="text-3xl md:text-4xl">Hvað langar þér í?</h2>
-				<p class="text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</header>
 
 			<div class="max-w-md mx-auto my-12">
@@ -302,8 +288,6 @@
 		<section v-if="(veganPick === false && stepCount === 5)" class="text-center">
 			<header class="max-w-xl mx-auto">
 				<h2 class="text-3xl md:text-4xl">Borðar þú sterkan mat?</h2>
-				<p class="text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</header>
 
 			<div class="max-w-md mx-auto my-12">
